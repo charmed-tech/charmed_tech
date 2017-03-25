@@ -3,52 +3,131 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>CharmeD TECH</title>
+        <title>charmed TECH</title>
         <link href="https://fonts.googleapis.com/css?family=Dosis:200,800|Inconsolata:400,700|Oxygen:700" rel="stylesheet">
-        <style>
-            html {
-                background: rgba(56, 27, 209, 0.8);
-                text-align: center;
-                font-variant: small-caps;
-                font-size: 300%;
-                line-height: 60%;
-            }
+        <link rel='stylesheet' href='style/style.min.css' />
+        <link rel='stylesheet' href='style/font-awesome.min.css' />
 
-            .one {
-                font-family: 'Inconsolata', monospace;
-                color: white;
-            }
-
-            .two {
-                font-family: 'Dosis', monospace;
-            }
-
-            .three {
-                font-family: 'Oxygen', monospace;
-                color: white;
-            }
-        </style>
     </head>
 
     <body>
-        <div class='one'>
-            <span style='color: black; font-weight: 700; letter-spacing: -4px;'>charmed</span><br/><span style='font-weight: 400;'>tech</span>
+        <div class='navbar'>
+            <a href='#about'>About</a> <a href='#projects'>Projects</a> <a href='#contact'>Contact</a>
         </div>
-        <br/>
-        <br/>
-        <div class='two'>
-            <span style='font-weight: 800; text-shadow: 0 0 3px black; z-index: 100'>charmed</span><br/><span style='color: black; font-size: 80%; font-weight: 200; color: auto'>TECH</span>
+        <div class='top-section' id='about'>
+            <div class='main-title'>
+                <span class='charmed'>charmed</span>
+                <br/> <span class='tech'>tech</span>
+            </div>
+            <div class='sub-title'>
+                Writer, teacher, and activist turned Front End Developer
+            </div>
+            <div class='buttons'>
+                <button>GitHub</button>
+                <button>CodePen</button>
+                <button>Twitter</button>
+            </div>
         </div>
-        <br/>
-        <div class='three'>
-            charmed
-            <br/>TECH
+        <div class='middle-section' id='projects'>
+
+            <!--New-->
+            <div id='container'>
+                <div class='content-left text'>
+                    <h1>Recipe Box</h1>
+                    <span>Made with React.js, React Bootstrap, and oodles of SCSS. Add your own recipes and style the instructions to your taste! Recipes will stick around until you clear your browser's cache.</span>
+                </div>
+                <div class='content-right'><img src='https://dummyimage.com/750x500' /></div>
+            </div>
+            <!--New-->
+
+
+            <!--New-->
+            <div id='container'>
+                <div class='content-left'><img src='https://dummyimage.com/750x500' /> </div>
+                <div class='content-right text'>
+                    <h1>Markdown Language Previewer</h1>
+                    <span>Markdown Language Previewer with React.js and the Marked library.</span>
+                </div>
+            </div>
+
+            <!--New-->
+            <div id='container'>
+                <div class='content-left text'>
+                    <h1>Simon Game</h1> My digital remake of Milton Bradley's classic 1978 memory game is made with jQuery and pure Sass. Strict mode is unforgiving, and the game speeds up as you progress. Score 50 points to win!
+                </div>
+                <div class='content-right'><img src='https://dummyimage.com/750x500' /></div>
+            </div>
+
+            <!--New-->
+
+            <div id='container'>
+                <div class='content-left'><img src='https://dummyimage.com/750x500' /> </div>
+                <div class='content-right text'>
+                    <h1>freeCodeCamp</h1>
+                    <span>I am currently learning Full Stack JavaScript Development with freeCodeCamp! I've already earned their Front End Development Certificate, and I expect to complete their Back End Development Certificate by June 2017. You can
+                    view my official certificate, 50+ algorithm solutions, and front end projects at <a href='https://freecodecamp.com/charmedsatyr'>my freeCodeCamp profile page</a>.</span>
+                </div>
+            </div>
+            <!--New sample pair-->
+
+
+            <!--New-->
+            <div id='container'>
+                <div class='content-left text'>
+                    <h1>Wikipedia Viewer</h1> Automagically open up a world of articles upon typing, using the Wikipedia APIs.
+                </div>
+                <div class='content-right'><img src='https://dummyimage.com/750x500' /></div>
+            </div>
+
+            <!--New-->
+            <div id='container'>
+                <div class='content-left'><img src='https://dummyimage.com/750x500' />
+                    <!--Google Contest img?-->
+                </div>
+                <div class='content-right text'>
+                    <h1>See my other projects!</h1>
+                    <span>Check out <a href='https://CharmedSatyr.com'>my development site</a> to see the rest of my projects and see what I'm working on!</span>
+                </div>
+            </div>
         </div>
-        <br/>
-        <div>
-            <span class='three'>charmed</span>
-            <br/>
-            <span class='two'>TECH</span>
+        <div class='bottom-section' id='contact'>
+            <!-- Contact-->
+            <div>
+                <div>
+                    <a href="publickey.email-at-charmedsatyr-dot-com.txt" target="_blank">
+                        <p title="send me an encrypted message"><i aria-hidden="true" class="fa fa-lock"></i><span> OpenPGP Public Key</span></p>
+                    </a><br>
+                    <form method="post" action="contact.php">
+                        <div class="row">
+                            <div class="formEntry ">Name<span class="error">*</span></div>
+                            <input id="nameEntry" type="text" name="nameEntry">
+                        </div>
+                        <div id="nameError" class="error"></div>
+                        <div class="row">
+                            <div class="formEntry ">Email<span class="error">*</span></div>
+                            <input id="emailEntry" type="text" name="emailEntry">
+                        </div>
+                        <div id="emailError" class="error"></div>
+                        <div class="row">
+                            <div class="formEntry ">Website</div>
+                            <input id="websiteEntry" type="text" name="websiteEntry">
+                        </div>
+                        <div id="websiteError" class="error"></div>
+                        <div class="row">
+                            <div class="formEntry ">Subject<span class="error">*</span></div>
+                            <input id="subjectEntry" type="text" name="subjectEntry">
+                        </div>
+                        <div id="subjectError" class="error"></div>
+                        <div class="row">
+                            <div class="formEntry">Message<span class="error">*</span></div>
+                            <textarea id="messageEntry" type="text" name="messageEntry" rows='20'></textarea>
+                        </div>
+                        <div id="messageError" class="error"></div><br>
+                        <div id="submit" type="submit" value="Submit" class="btn btn-default">Submit</div>
+                        <input id="submitReal" type="submit" value="Real">
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
 
