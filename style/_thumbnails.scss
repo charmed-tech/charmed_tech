@@ -1,0 +1,35 @@
+@mixin image-respond($w) {
+    .thumbnail {
+        img {
+            height: $w * 0.667;
+            width: $w;
+        }
+    }
+}
+@media screen and (max-width: 200px) {
+     @include image-respond(150px);
+}
+@media screen and (min-width: 201px) {
+     @include image-respond(150px);
+}
+@media screen and (min-width: 300px) {
+     @include image-respond(250px);
+}
+@media screen and (min-width: 400px) {
+     @include image-respond(350px);
+}
+@media screen and (min-width: 500px) {
+     @include image-respond(450px);
+}
+@media screen and (min-width: 600px) {
+     @include image-respond(500px);
+}
+@media screen and (min-width: 700px) {
+     @include image-respond(600px);
+}
+@media screen and (min-width: 900px) {
+     @include image-respond(500px);
+}
+@media screen and (min-width: 1080px) {
+     @include image-respond(750px);
+}

@@ -1,0 +1,15 @@
+.navbar {
+    background: $dark;
+    font-size: 120%;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 700;
+    height: 30px;
+    padding: 1%;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+
+    a {
+        color: #ffffff;
+    }
+}

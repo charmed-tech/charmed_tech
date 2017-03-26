@@ -1,0 +1,29 @@
+.bottom-section {
+    background: $dark;
+    bottom: 0;
+    color: $light;
+    font-size: 120%;
+    padding: 6% 1% 10%;
+    text-align: center;
+
+    a {
+        color: $light;
+    }
+
+    input {
+        font-size: 110%;
+        height: 28px;
+        margin-bottom: 1%;
+        width: 25%;
+    }
+
+    textarea {
+        height: 15%;
+        width: 40%;
+        font-size: 150%;
+    }
+}
+
+.hide {
+  display: none;
+}
