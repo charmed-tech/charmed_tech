@@ -1,7 +1,6 @@
 @import './_variables.scss';
 @import './_navbar.scss';
 @import './_top-section.scss';
-@import './_buttons.scss';
 @import './_middle-section.scss';
 @import './_bottom-section.scss';
 @import './_thumbnails.scss';
@@ -9,5 +8,5 @@
 body {
     background: $dark;
     margin: 0;
-    font-family: 'Dosis', monospace;
+    font-family: $thin-font;
 }

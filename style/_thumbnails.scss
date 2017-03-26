@@ -2,7 +2,14 @@
     .thumbnail {
         img {
             height: $w * 0.667;
+            border: 1px solid $dark;
             width: $w;
+
+            &:hover {
+                -moz-box-shadow: 0 0 5px $dark;
+                -webkit-box-shadow: 0 0 5px $dark;
+                box-shadow: 0 0 5px $dark;
+            }
         }
     }
 }

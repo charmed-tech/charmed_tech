@@ -27,7 +27,7 @@
             text-shadow: 1px 1px 6px $light, -1px 0 6px $light;
             font-variant: small-caps;
             font-weight: 400;
-            font-family: 'Dosis', monospace;
+            font-family: $thin-font;
         }
     }
 
@@ -35,8 +35,36 @@
         color: $light;
         text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
 
-        font-family: 'Dosis', monospace;
-//        font-variant: small-caps;
+        font-family: $thin-font;
         font-size: 400%;
     }
+
+    .buttons {
+        display: inline;
+
+        .fa {
+            border-radius: 100%;
+            color: $dark;
+            font-size: 400%;
+            margin-left: 15px;
+            margin-right: 15px;
+            text-align: center;
+            text-shadow: 1px 1px 4px $light, -1px 0 4px $light;
+        }
+
+        .fa-twitter {
+            &:hover {
+                text-shadow: 2px 2px 4px $gold, -2px -2px 4px $gold, 2px -2px 4px $gold, -2px 2px 4px $gold;
+            }
+        }
+
+        .fa-github {
+            &:hover {
+                text-shadow: 2px 2px 4px $blue, -2px -2px 4px $blue, 2px -2px 4px $blue, -2px 2px 4px $blue;
+            }
+        }
+    }
+
+
+
 }
