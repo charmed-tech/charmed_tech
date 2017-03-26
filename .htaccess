@@ -1,0 +1,18 @@
+# site redirection
+RewriteEngine on
+
+# always redirect charmed.tech sites to https
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://charmed.tech/$1 [R,L]
+
+#RewriteCond %{HTTP_HOST} ^charmed\.tech$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.charmed\.tech$
+#RewriteRule ^/?$ "https\:\/\/charmed\.tech/" [R=301,L]
+
+#Error 404 page
+ErrorDocument 404 https://charmed.tech/error404.html
+
+RewriteOptions inherit
+
+# disable directory browsing
+Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes

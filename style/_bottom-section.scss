@@ -24,7 +24,7 @@
         height: 15%;
         font-size: 150%;
         margin-top: 2px;
-        margin-botom: 1%;
+        margin-bottom: 1%;
         width: 40%;
     }
 
@@ -37,6 +37,7 @@
         background: $dark;
         border-radius: 4px;
         color: $light;
+        cursor: pointer;
         border: 1px solid $light;
         font-family: $thin-font;
         font-size: 100%;

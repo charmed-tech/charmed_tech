@@ -13,7 +13,7 @@
         font-size: 700%;
         line-height: 75%;
         margin-top: 8%;
-        margin-bottom: 1%;
+        margin-bottom: 0;
 
         .charmed {
             color: $dark;
@@ -34,7 +34,6 @@
     .sub-title {
         color: $light;
         text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
-
         font-family: $thin-font;
         font-size: 400%;
     }
@@ -64,7 +63,4 @@
             }
         }
     }
-
-
-
 }

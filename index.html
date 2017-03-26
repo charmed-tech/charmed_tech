@@ -3,14 +3,16 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Charmed Tech</title>
-        <link href="https://fonts.googleapis.com/css?family=Dosis:200,800|Inconsolata:400,700|Oxygen:700" rel="stylesheet">
+        <title>charmed.tech</title>
         <link rel='stylesheet' href='style/style.min.css' />
         <link rel='stylesheet' href='style/font-awesome.min.css' />
 
     </head>
 
     <body>
+        <noscript>
+            <div id='ns'>Please enable Javascript. This site will not function properly without it.</div>
+        </noscript>
         <div class='navbar'>
             <a href='#home'>Home</a> <a href='#projects'>Projects</a> <a href='#contact'>Contact</a>
         </div>
@@ -20,7 +22,7 @@
                 <br/> <span class='charmed'>Wolfe</span>
             </div>
             <div class='sub-title'>
-                loves to code.
+                makes charmed tech.
             </div>
             <div class='buttons'>
                 <a href='https://github.com/CharmedSatyr'>
@@ -60,7 +62,9 @@
                     <a href='https://charmedsatyr.github.io/markdown_previewer'>
                         <h1>Markdown Language Previewer</h1>
                     </a>
-                    <p>Markdown Language Previewer with React.js and the Marked library.</p>
+                    <p>Learn and test out your Markdown Language skills with this React.js Markdown Previewer! Using the Marked library with custom options, this website is an asset for anyone who wants to preview their GitHub-flavored markdown formatting
+                        before posting documents online.
+                    </p>
                 </div>
             </div>
 
@@ -70,7 +74,7 @@
                     <a href='https://charmedsatyr.github.io/simon_game'>
                         <h1>Simon Game</h1>
                     </a>
-                    <p>My digital remake of Milton Bradley's classic 1978 memory game is made with jQuery and pure Sass. Strict mode is unforgiving, and the game speeds up as you progress. Score 50 points to win!</p>
+                    <p>This digital remake of Milton Bradley's classic 1978 memory game is made with jQuery and pure Sass. Strict mode is unforgiving, and the game speeds up as you progress. Score 20 points to win!</p>
                 </div>
                 <div class='content-right thumbnail'>
                     <a href='https://charmedsatyr.github.io/simon_game'>
@@ -92,7 +96,7 @@
                         <h1>freeCodeCamp</h1>
                     </a>
                     <p>I am currently learning Full Stack JavaScript Development with freeCodeCamp! I've already earned their Front End Development Certificate, and I expect to complete their Back End Development Certificate by June 2017. You can view my
-                        official certificate, 50+ algorithm solutions, and front end projects at <a href='https://freecodecamp.com/charmedsatyr'>my freeCodeCamp profile page</a>.</p>
+                        official certificate, 50+ algorithm solutions, and project links at <a href='https://freecodecamp.com/charmedsatyr'>my freeCodeCamp profile page</a>.</p>
                 </div>
             </div>
 
@@ -102,7 +106,7 @@
                     <a href='https://charmedsatyr.github.io/wikipedia_viewer'>
                         <h1>Wikipedia Viewer</h1>
                     </a>
-                    <p>Automagically open up a world of articles upon typing, using the Wikipedia APIs.</p>
+                    <p>Type your query to automagically search the entire Wikipedia API for matches. If you're up for an adventure into the unknown, try clicking Random and probe an obscure branch of human knowledge.</p>
                 </div>
                 <div class='content-right thumbnail'>
                     <a href='https://charmedsatyr.github.io/wikipedia_viewer'>
@@ -122,29 +126,29 @@
                     <a href='https://charmedsatyr.com'>
                         <h1>See my other projects!</h1>
                     </a>
-                    <p>Check out <a href='https://CharmedSatyr.com'>my development site</a> to see the rest of my projects and see what I'm working on!</p>
+                    <p>My first hackathon was a Google Startup Weekend, and my team won First Prize! Check out <a href='https://CharmedSatyr.com'>my development site</a> to see other projects I've worked on, or <a href='https://twiter.com/CharmedSatyr'>follow me on Twitter</a>                        to see what I'm up to now!</p>
                 </div>
             </div>
         </div>
+        <!-- Contact-->
         <div class='bottom-section' id='contact'>
-            <!-- Contact-->
             <div>
                 <form method="post" action="contact.php">
                     <div>Name<span class="error">*</span></div>
                     <div id="nameError" class="error"></div>
-                    <input id="nameEntry" type="text" name="nameEntry" class="col-xs-4">
+                    <input id="nameEntry" type="text" name="nameEntry">
                     <div>Email<span class="error">*</span></div>
                     <div id="emailError" class="error"></div>
-                    <input id="emailEntry" type="text" name="emailEntry" class="col-xs-4">
+                    <input id="emailEntry" type="text" name="emailEntry">
                     <div>Website</div>
                     <div id="websiteError" class="error"></div>
-                    <input id="websiteEntry" type="text" name="websiteEntry" class="col-xs-4">
+                    <input id="websiteEntry" type="text" name="websiteEntry">
                     <div>Subject<span class="error">*</span></div>
                     <div id="subjectError" class="error"></div>
-                    <input id="subjectEntry" type="text" name="subjectEntry" class="col-xs-4">
+                    <input id="subjectEntry" type="text" name="subjectEntry">
                     <div>Message<span class="error">*</span></div>
                     <div id="messageError" class="error"></div>
-                    <textarea id="messageEntry" type="text" name="messageEntry" class="col-xs-4"></textarea>
+                    <textarea id="messageEntry" type="text" name="messageEntry"></textarea>
                     <br/>
                     <div id="submit" type="submit" value="Submit" class='submit'>Submit</div>
                     <input id="submitReal" type="submit" value="Real">
@@ -154,5 +158,9 @@
         <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
         <script type="text/javascript" src="js/contact.js"></script>
     </body>
+
+</html>
+>
+</body>
 
 </html>
