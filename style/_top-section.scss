@@ -4,10 +4,13 @@
     height: 100%;
     height: 100vh;
     margin: 0;
-    padding-top: 6%;
+    padding-top: 15vh;
     padding-left: 5%;
     padding-right: 5%;
     text-align: center;
+    @media screen and (max-width: 720px) {
+        padding-top: 20vh;
+    }
 
     .main-title {
         -moz-user-select: none;
@@ -45,7 +48,11 @@
         text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
         font-family: $thin-font;
         font-size: 400%;
+        margin-bottom: 1%;
         user-select: none;
+        @media screen and (max-width: 720px) {
+            font-size: 300%;
+        }
     }
 
     .buttons {
