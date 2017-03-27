@@ -10,10 +10,15 @@
     text-align: center;
 
     .main-title {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
         font-size: 700%;
         line-height: 75%;
         margin-top: 8%;
         margin-bottom: 0;
+        user-select: none;
 
         .charmed {
             color: $dark;
@@ -32,10 +37,15 @@
     }
 
     .sub-title {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
         color: $light;
         text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
         font-family: $thin-font;
         font-size: 400%;
+        user-select: none;
     }
 
     .buttons {
