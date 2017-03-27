@@ -34,5 +34,14 @@
         .text {
             margin: 5%;
         }
+        @media screen and (max-width: 900px) {
+            .text {
+                order: 1;
+            }
+
+            .thumbnail {
+                order: 2;
+            }
+        }
     }
 }
