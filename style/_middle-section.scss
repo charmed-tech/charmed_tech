@@ -5,12 +5,17 @@
     padding: 10% 2% 2%;
 
     #container {
+        align-items: -webkit-center;
         align-items: center;
+        display: -webkit-flex;
         display: flex;
+        flex-direction: -webkit-column;
         flex-direction: column;
         margin-bottom: 18%;
+        text-align: -webkit-justify;
         text-align: justify;
         @media screen and (min-width: 900px) {
+            flex-direction: -webkit-row;
             flex-direction: row;
         }
 
