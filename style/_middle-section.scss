@@ -2,7 +2,6 @@
     background: $light url('../img/ignasi_pattern_s.png');
     color: $dark;
     font-size: 200%;
-    font-weight: 500;
     padding: 10% 2% 2%;
 
     #container {
@@ -11,14 +10,17 @@
         flex-direction: column;
         margin-bottom: 18%;
         text-align: justify;
+        @media screen and (min-width: 900px) {
+            flex-direction: row;
+        }
 
-        h1 {
+        h2 {
             font-family: 'Inconsolata', monospace;
-            margin-bottom: 1%;
             text-align: left;
         }
+
         a {
-          color: $dark;
+            color: $dark;
         }
 
         .content-left {
@@ -33,13 +35,4 @@
             margin: 5%;
         }
     }
-}
-
-@media screen and (min-width: 900px) {
-.middle-section {
-  #container {
-    flex-direction: row;
-  }
-}
-
 }

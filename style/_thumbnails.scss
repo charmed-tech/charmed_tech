@@ -32,11 +32,18 @@
      @include image-respond(500px);
 }
 @media screen and (min-width: 700px) {
-     @include image-respond(600px);
+     @include image-respond(500px);
 }
 @media screen and (min-width: 900px) {
      @include image-respond(500px);
 }
 @media screen and (min-width: 1080px) {
+     @include image-respond(550px);
+}
+
+@media screen and (min-width: 1200px) {
+     @include image-respond(650px);
+}
+@media screen and (min-width: 1440px) {
      @include image-respond(750px);
 }

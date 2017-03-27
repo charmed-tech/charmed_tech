@@ -51,15 +51,15 @@
             text-shadow: 1px 1px 4px $light, -1px 0 4px $light;
         }
 
-        .fa-twitter {
+        .fa-github {
             &:hover {
-                text-shadow: 2px 2px 4px $gold, -2px -2px 4px $gold, 2px -2px 4px $gold, -2px 2px 4px $gold;
+                text-shadow: 0 0 6px $blue, 0 0 4px $blue;
             }
         }
 
-        .fa-github {
+        .fa-twitter {
             &:hover {
-                text-shadow: 2px 2px 4px $blue, -2px -2px 4px $blue, 2px -2px 4px $blue, -2px 2px 4px $blue;
+                text-shadow: 2px 2px 4px $gold, -2px -2px 4px $gold, 2px -2px 4px $gold, -2px 2px 4px $gold;
             }
         }
     }

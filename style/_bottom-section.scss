@@ -2,9 +2,9 @@
     background: $dark;
     bottom: 0;
     color: $light;
-    font-size: 120%;
+    font-size: 130%;
     height: 70vh;
-    padding: 8% 1%;
+    padding: 8% 1% 10%;
     text-align: center;
 
     a {
@@ -21,11 +21,19 @@
 
     textarea {
         border-radius: 4px;
-        height: 15%;
         font-size: 150%;
         margin-top: 2px;
         margin-bottom: 1%;
-        width: 40%;
+        width: 80vw;
+        @media screen and (max-width: 600px) {
+            width: 80vw;
+        }
+        @media screen and (min-width: 601px) {
+            width: 50vw;
+        }
+        @media screen and (min-width: 900px) {
+            width: 40vw;
+        }
     }
 
     .error {
@@ -41,13 +49,12 @@
         border: 1px solid $light;
         font-family: $thin-font;
         font-size: 100%;
-        margin: 1% auto 5%;
-        text-align: center;
-        width: 8%;
-
-        &:hover &:active {
-            background-color: $light;
-            color: $dark;
+        margin: 1% auto 8%;
+        @media screen and (max-width: 720px) {
+            width: 25vw;
+        }
+        @media screen and (min-width: 721px) {
+            width: 8%;
         }
     }
 
