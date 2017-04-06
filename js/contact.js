@@ -77,7 +77,7 @@ $('#submit').click(function() {
 
     if (a == 5) {
         console.log('All tests pass!');
-//        $('#submitReal').trigger('click');
+        $('#submitReal').trigger('click');
     }
 
 });
