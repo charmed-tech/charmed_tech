@@ -40,7 +40,7 @@
             -webkit-user-select: none;
             font-size: 900%;
             line-height: 75%;
-            margin-bottom: 0;
+            margin-bottom: 1%;
             user-select: none;
 
             .charmed {
@@ -51,8 +51,8 @@
             }
 
             .tech {
-                color: $dark;
-                text-shadow: 1px 1px 6px $light, -1px 0 6px $light;
+                color: $light;
+                text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
                 font-variant: small-caps;
                 font-weight: 400;
                 font-family: $thin-font;
@@ -65,10 +65,10 @@
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             color: $light;
-            text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
             font-family: $thin-font;
             font-size: 450%;
-            margin-bottom: 1%;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
             user-select: none;
         }
 
@@ -105,7 +105,6 @@
 @media screen and (max-height: 376px) {
      @include top-fs(750%, 250%, 300%);
 }
-
 /*
 @media screen and (max-width: 321px) {
      @include top-fs(800%, 500%, 400%);
