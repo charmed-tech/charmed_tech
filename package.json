@@ -1,0 +1,22 @@
+{
+  "name": "charmed_tech",
+  "version": "0.0.1",
+  "main": "index.html",
+  "repository": "https://github.com/CharmedSatyr/charmed_tech",
+  "author": "CharmedSatyr <z@charmed.tech>",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "gulp default": "gulp default"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
