@@ -7,15 +7,22 @@
   "license": "GPL-3.0",
   "private": false,
   "scripts": {
-    "gulp default": "gulp default"
+    "start": "gulp start",
+    "clean": "rm -rf error404.html error501.html index.html styles js"
   },
   "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.23.5",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.9.0",
     "gulp-concat": "^2.6.1",
+    "gulp-inject": "^4.3.0",
     "gulp-pug": "^3.3.0",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
+    "prettier": "^1.10.2"
   }
 }

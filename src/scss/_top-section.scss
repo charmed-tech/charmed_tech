@@ -1,0 +1,115 @@
+@mixin top-fs($top-mt-fs, $top-sub-fs, $top-fa) {
+    .top-section {
+        .contents {
+            .main-title {
+                font-size: $top-mt-fs;
+            }
+
+            .sub-title {
+                font-size: $top-sub-fs;
+            }
+
+            .buttons {
+                .fa {
+                    font-size: $top-fa;
+                }
+            }
+        }
+    }
+}
+
+.top-section {
+    display: -webkit-flex;
+    align-items: center;
+    background: $dark url('../img/gwangan.jpg') top center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    height: 100vh;
+    justify-content: center;
+    margin: auto;
+    padding-top: 2%;
+    text-align: center;
+
+    .contents {
+        .main-title {
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            font-size: 900%;
+            line-height: 75%;
+            margin-bottom: 1%;
+            user-select: none;
+
+            .charmed {
+                color: $dark;
+                font-family: 'Inconsolata', monospace;
+                font-weight: 600;
+                text-shadow: 1px 1px 6px $light, -1px 0 6px $dark;
+            }
+
+            .tech {
+                color: $light;
+                text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
+                font-variant: small-caps;
+                font-weight: 400;
+                font-family: $thin-font;
+            }
+        }
+
+        .sub-title {
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            color: $light;
+            font-family: $thin-font;
+            font-size: 450%;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
+            user-select: none;
+        }
+
+        .buttons {
+            display: inline;
+
+            .fa {
+                border-radius: 100%;
+                color: $dark;
+                font-size: 500%;
+                margin-left: 15px;
+                margin-right: 15px;
+                text-align: center;
+                text-shadow: 1px 1px 4px $light, -1px 0 4px $light;
+            }
+
+            .fa-github {
+                &:hover {
+                    text-shadow: 0 0 6px $blue, 0 0 4px $blue;
+                }
+            }
+
+            .fa-twitter {
+                &:hover {
+                    text-shadow: 2px 2px 4px $gold, -2px -2px 4px $gold, 2px -2px 4px $gold, -2px 2px 4px $gold;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-height: 420px) {
+     @include top-fs(750%, 350%, 400%);
+}
+@media screen and (max-height: 376px) {
+     @include top-fs(750%, 250%, 300%);
+}
+/*
+@media screen and (max-width: 321px) {
+     @include top-fs(800%, 500%, 400%);
+}
+@media screen and (min-width:721px) {
+     @include top-fs(700%, 400%, 400%);
+}
+*/

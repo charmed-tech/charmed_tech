@@ -1,0 +1,134 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset="UTF-8", name='viewport', content='width=device-width, initial-scale=1', title='Charmed Tech')
+        //- inject:css
+        //- {{name}}:{{ext}}
+        //- endinject
+    body
+        div.navbar
+            a(href='#home') Home
+            span &nbsp;
+            a(href='#projects') Projects
+            span &nbsp;
+            a(href='#contact') Contact
+        noscript
+            div#ns Please enable Javascript. This site will not function properly without it.
+        div#home.top-section
+            div.contents
+                div.sub-title Welcome to
+                div.main-title
+                    span.charmed Charmed
+                    br
+                    span.tech Tech
+                br
+                div.buttons
+                    a(href='https://github.com/CharmedSatyr')
+                        i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub!')
+                    a(href='https://twitter.com/CharmedSatyr')
+                        i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
+        div#projects.middle-section
+            - var recipe_box = {title: 'Recipe Box', description: "Made with React.js, React Bootstrap, nad oodles of SCSS. Add your own recipes and style the instructions to your taste! Recipes will stick around until you clear your browser's cache.", url: '#'}
+            each val in [recipe_box]
+                div#container
+                    div.content-left.text
+                        a(href=`${val.url}`)
+                            h2 #{val.title}
+                        p #{val.description}
+                    div.content-right.thumbnail
+                        a(href=`${val.url}`)
+                            img(src='img/recipe_box-750x500.png')
+            // New
+            div#container
+                div.content-left.text
+                    a(href=`${url}`)
+                        h2 #{title}
+                    p #{description}
+                div.content-right.thumbnail
+                    a(href=`${url}`)
+                        img(src='img/recipe_box-750x500.png')
+            // New
+            div#container
+                div.content-left.thumbnail
+                    a(href='https://charmedsatyr.github.io/markdown_previewer')
+                        img(src='img/markdown_previewer-750x500.png')
+                div.content-right.text
+                    a(href='https://charmedsatyr.github.io/markdown_previewer')
+                        h2 Markdown Language Previewer
+                    p Try your Markdown Language skills with this React.js Markdown Previewer! Using the Marked library with custom options, this website is an asset for anyone who wants to preview their GitHub-flavored formatting before posting documents online.
+            // New
+            div#container
+                div.content-left.text
+                    a(href='https://charmedsatyr.github.io/simon_game')
+                        h2 Simon Game
+                    p This digital remake of Milton Bradley's classic 1978 memory game is made with jQuery and pure Sass. Strict mode is unforgiving, and the game speeds up as you progress. Score 20 points to win!
+                div.content-right.thumbnail
+                    a(href='https://charmedsatyr.github.io/simon_game')
+                        img(src='img/simon_game-750x500.png')
+            // New
+            div#container
+                div.content-left.thumbnail
+                    a(href='https://freecodecamp.com/charmedsatyr')
+                        img(src='img/freecodecamp-750x500.png')
+                div.content-right.text
+                    a(href='https://freecodecamp.com/charmedsatyr')
+                        h2 freeCodeCamp
+                    p I am currently learning Full Stack JavaScript Development with freeCodeCamp! I've already earned their Front End Development Certificate, and I expect to complete their Back End Development Certificate by June 2017. You can view my official certificate, 50+ algorithm solutions, and project links at 
+                      a(href='https://freecodecamp.com/charmedsatyr') my freeCodeCamp profile page
+                      span .
+            // New
+            div#container
+                div.content-left.text
+                    a(href='https://charmedsatyr.github.io/wikipedia_viewer')
+                        h2 Wikipedia Viewer
+                    p Type your query to automagically search the entire Wikipedia API for articles. If you're up for an adventure, try clicking Random and probe an obscure branch of human knowledge.
+                div.content-right.thumbnail
+                    a(href='https://charmedsatyr.github.io/wikipedia_viewer')
+                        img(src='img/wikipedia_viewer-750x500.png')
+            // New
+            div#container
+                div.content-left.thumbnail
+                    a(href='https://charmedsatyr.com')
+                        img(src='img/google_entrepreneurs.jpg')
+                div.content-right.text
+                    a(href='https://charmedsatyr.com')
+                        h2 See my other projects!
+                    p My first hackathon was a Google Startup Weekend, and my team won First Prize! Check out 
+                        a(href='https://CharmedSatyr.com') my development site
+                        span to see other projects I've worked on,
+                        a(href='https://github.com/CharmedSatyr') read my code on GitHub
+                        span , or 
+                        a(href='https://twitter.com/CharmedSatyr') follow me on Twitter
+                        span to see what I'm up to now!
+        // Contact
+        div.bottom-section#contact
+            div.contents
+                h3 Send me a message 
+                    i.fa.fa-send
+                div
+                    form(method="post" action="contact.php")
+                        div Name
+                            span.error *
+                        div#nameError.error
+                        input#nameEntry(type="text" name="nameEntry")
+                        div Email
+                            span.error *
+                        div#emailError.error
+                        input#emailEntry(type="text" name="emailEntry")
+                        div Website
+                        div#websiteError.error
+                        input#websiteEntry(type="text" name="websiteEntry")
+                        div Subject
+                            span.error *
+                        div#subjectError.error
+                        input#subjectEntry(type="text" name="subjectEntry")
+                        div Message
+                            span.error *
+                        div#messageError.error
+                        textarea#messageEntry(type="text" rows='8' name="messageEntry")
+                        br
+                        div#submit(type="submit" value="Submit" class='submit') Submit
+                        input#submitReal(type="submit" value="Real")
+        //- inject:js
+        //- {{name}}.{{ext}}
+        //- endinject
