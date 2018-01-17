@@ -2,20 +2,32 @@ var autoprefixer = require('gulp-autoprefixer')
 var browserSync = require('browser-sync').create()
 var cleanCSS = require('gulp-clean-css')
 var concat = require('gulp-concat')
+var data = require('gulp-data')
 var gulp = require('gulp')
 var inject = require('gulp-inject')
 var pug = require('gulp-pug')
 var sass = require('gulp-sass')
 var uglify = require('gulp-uglify')
 
-gulp.task('copy', function() {
+// copy resources, including all images, to dist
+gulp.task('resources', function() {
   return gulp
-    .src(['node_modules/font-awesome/fonts', 'src/resources/*', 'src/resources/img/*'], {
-      base: 'src/resources/' // gulp will copy all *directories* after this path
+    .src(['src/resources/*', 'src/resources/img/*'], {
+      base: 'src/resources/' // gulp will copy directories w/contents after specified base
     })
     .pipe(gulp.dest('dist/'))
 })
 
+// copy font-awesome fonts to dist
+gulp.task('fonts', function() {
+  return gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest('dist/fonts/'))
+})
+
+// convert scss from font-awesome and src/scss to css
+// concatenate it into a single file
+// autoprefix it
+// clean it
+// put it in dist/styles
 // stream updates to the browser.
 gulp.task('scss', function() {
   return gulp
@@ -48,17 +60,18 @@ gulp.task('js', function() {
 //These sources will be injected into pug templates
 var sources = gulp.src(['dist/styles/*.css', 'dist/js/*.js'], { read: false })
 
-// Render index.html
-gulp.task('index', function buildHTML() {
+// import sites.json object for pug to iterate (see index.pug middle)
+// inject sources with proper paths
+// build index.html
+// put it in dist
+// stream
+gulp.task('index', () => {
   var target = gulp.src('src/index.pug', { read: true })
+
   return target
+    .pipe(data(file => require('./src/sites.json')))
     .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
-    .pipe(
-      pug({
-        data: {}
-      })
-    )
-    .pipe(concat('index.html'))
+    .pipe(pug())
     .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
 })
@@ -118,17 +131,22 @@ gulp.task('fiveOhOne', function buildHTML() {
 })
 
 // Static server + watchin scss/js/pug files
-gulp.task('start', ['copy', 'scss', 'js', 'index', 'thanks', 'missing', 'fiveOhOne'], function() {
-  browserSync.init({
-    server: {
-      baseDir: 'dist/'
-    }
-  })
-  gulp.watch('src/scss/*.scss', ['scss'])
-  gulp.watch('src/js/*.js', ['js'])
-  gulp.watch('src/index.pug', ['index'])
-  gulp.watch('src/thanksAndError.pug', ['thanks'])
-  gulp.watch('src/thanksAndError.pug', ['missing'])
-  gulp.watch('src/thanksAndError.pug', ['fiveOhOne'])
-  gulp.watch('*.html').on('change', browserSync.reload)
-})
+gulp.task(
+  'start',
+  ['resources', 'fonts', 'scss', 'js', 'index', 'thanks', 'missing', 'fiveOhOne'],
+  function() {
+    browserSync.init({
+      server: {
+        baseDir: 'dist/'
+      }
+    })
+    gulp.watch('src/scss/*.scss', ['scss'])
+    gulp.watch('src/js/*.js', ['js'])
+    gulp.watch('src/index.pug', ['index'])
+    gulp.watch('src/sites.json', ['index']) //This doesn't quite work but tries
+    gulp.watch('src/thanksAndError.pug', ['thanks'])
+    gulp.watch('src/thanksAndError.pug', ['missing'])
+    gulp.watch('src/thanksAndError.pug', ['fiveOhOne'])
+    gulp.watch('*.html').on('change', browserSync.reload)
+  }
+)

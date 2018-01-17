@@ -28,14 +28,7 @@ html(lang='en')
                     a(href='https://twitter.com/CharmedSatyr')
                         i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
         div#projects.middle-section
-            - var recipe_box = { title: 'Recipe Box', description: "Made with React.js, React Bootstrap, and oodles of SCSS. Add your own recipes and style the instructions to your taste! Recipes will stick around until you clear your browser's cache.", url: '#', img: 'img/recipe_box-750x500.png' }
-            - var testy = { title: 'testy', description: 'testy2', url: '#', img: '#' }
-            - var markdown_previewer = { title: 'Markdown Language Previewer', description: 'Test your Markdown Language skills with this React.js Markdown Previewer! Using the Marked Library with custom options, this website is an asset for anyone who wants to preview their GitHub-flavored markup before posting documents online.', url: 'https://charmedsatyr.github.io/markdown_previewer', img: 'img/markdown_previewer-750x500.png' }
-            - var simon_game = { title: 'Simon Game', description: "This digital remake of Milton Bradley's classic 1978 memory game is made with jQuery and pure Sass. Strict mode is unforgiving, and the game speeds up as you progress. Score 20 points to win!", url: 'https://charmedsatyr.github.io/simon_game', img: 'img/simon_game-750x500.png' }
-            - var freecodecamp = { title: 'freeCodeCamp', description: "I am currently learning Full Stack JavaScript Development with freeCodeCamp! I've already earned their Front End Development Certificate, and I expect to complete their Back End Development Certificate by June 2017. You can view my official certificate, 50+ algorithm solutions, and project links at my freeCodeCamp profile page.", url: 'https://freecodecamp.com/charmedsatyr', img: 'img/freecodecamp-750x500.png' }
-            - var wikipedia_viewer = { title: 'Wikipedia Viewer', description: "Type your query to automagically search the entire Wikipedia API for articles. If you're up for an adventure, try clicking Random and probe an obscure branch of human knowledge.", url: 'https://charmedsatyr.github.io/wikipedia_viewer', img: 'img/wikipedia_viewer-750x500.png' }
-            - var google_entrepreneurs = { title: 'See my other projects!', description: "My first hackathon was a Google Startup Weekend, and my team won First Prize! Check out my development site to see other projects I've worked on, read my code on GitHub, or follow me on Twitter to see what I'm up to now!", url: 'https://charmedsatyr.com', img: 'img/google_entrepreneurs.jpg' }
-            each val in [recipe_box, markdown_previewer, simon_game, freecodecamp, wikipedia_viewer, google_entrepreneurs]
+            each val in sites
                 div#container
                     div.text
                         a(href=`${val.url}`)
