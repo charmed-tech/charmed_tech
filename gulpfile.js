@@ -8,11 +8,14 @@ var pug = require('gulp-pug')
 var sass = require('gulp-sass')
 var uglify = require('gulp-uglify')
 
-// compile local and font-awesome scss into css
-// concatenate to one file
-// autoprefix
-// clean and minify
-// put the result in the styles folder
+gulp.task('copy', function() {
+  return gulp
+    .src(['node_modules/font-awesome/fonts', 'src/resources/*', 'src/resources/img/*'], {
+      base: 'src/resources/' // gulp will copy all *directories* after this path
+    })
+    .pipe(gulp.dest('dist/'))
+})
+
 // stream updates to the browser.
 gulp.task('scss', function() {
   return gulp
@@ -25,7 +28,7 @@ gulp.task('scss', function() {
     .pipe(concat('styles.min.css'))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('styles/'))
+    .pipe(gulp.dest('dist/styles/'))
     .pipe(browserSync.stream())
 })
 
@@ -38,37 +41,33 @@ gulp.task('js', function() {
     .src(['node_modules/jquery/dist/jquery.min.js', 'src/js/*.js'])
     .pipe(concat('index.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('js/'))
+    .pipe(gulp.dest('dist/js/'))
     .pipe(browserSync.stream())
 })
 
+//These sources will be injected into pug templates
+var sources = gulp.src(['dist/styles/*.css', 'dist/js/*.js'], { read: false })
+
 // Render index.html
 gulp.task('index', function buildHTML() {
-  var sources = gulp.src(['styles/*.css', 'js/*.js'], { read: false })
   var target = gulp.src('src/index.pug', { read: true })
   return target
-    .pipe(inject(sources, { addRootSlash: false }))
+    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
-        data: {
-          title: 'Recipe Box',
-          description:
-            "Made with React.js, React Bootstrap, and oodles of SCSS. Add your own recipes and style the instructions to your taste! Recipes will stick around until you clear your browser's cache.",
-          url: 'https://charmedsatyr.github.io/recipe_box'
-        }
+        data: {}
       })
     )
     .pipe(concat('index.html'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
 })
 
 //Render thanks.html
 gulp.task('thanks', function buildHTML() {
-  var sources = gulp.src(['styles/*.css', 'js/*.js'], { read: false })
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(sources, { addRootSlash: false }))
+    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -78,16 +77,15 @@ gulp.task('thanks', function buildHTML() {
       })
     )
     .pipe(concat('thanks.html'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
 })
 
 //Render error404.html
 gulp.task('missing', function buildHTML() {
-  var sources = gulp.src(['styles/*.css', 'js/*.js'], { read: false })
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(sources, { addRootSlash: false }))
+    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -97,16 +95,15 @@ gulp.task('missing', function buildHTML() {
       })
     )
     .pipe(concat('error404.html'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
 })
 
 //Render error501.html
 gulp.task('fiveOhOne', function buildHTML() {
-  var sources = gulp.src(['styles/*.css', 'js/*.js'], { read: false })
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(sources, { addRootSlash: false }))
+    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -116,22 +113,22 @@ gulp.task('fiveOhOne', function buildHTML() {
       })
     )
     .pipe(concat('error501.html'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream())
 })
 
 // Static server + watchin scss/js/pug files
-gulp.task('start', ['scss', 'js', 'index' /*, 'thanks', 'missing', 'fiveOhOne'*/], function() {
+gulp.task('start', ['copy', 'scss', 'js', 'index', 'thanks', 'missing', 'fiveOhOne'], function() {
   browserSync.init({
     server: {
-      baseDir: './'
+      baseDir: 'dist/'
     }
   })
   gulp.watch('src/scss/*.scss', ['scss'])
   gulp.watch('src/js/*.js', ['js'])
   gulp.watch('src/index.pug', ['index'])
-  //  gulp.watch('src/thanksAndError.pug', ['thanks'])
-  //  gulp.watch('src/thanksAndError.pug', ['missing'])
-  //  gulp.watch('src/thanksAndError.pug', ['fiveOhOne'])
+  gulp.watch('src/thanksAndError.pug', ['thanks'])
+  gulp.watch('src/thanksAndError.pug', ['missing'])
+  gulp.watch('src/thanksAndError.pug', ['fiveOhOne'])
   gulp.watch('*.html').on('change', browserSync.reload)
 })
