@@ -1,21 +1,29 @@
 var autoprefixer = require('gulp-autoprefixer')
-var browserSync = require('browser-sync').create()
+var bs = require('browser-sync').create()
 var cleanCSS = require('gulp-clean-css')
 var concat = require('gulp-concat')
 var data = require('gulp-data')
+var del = require('del')
+var fs = require('fs')
 var gulp = require('gulp')
+var imageResize = require('gulp-image-resize')
 var inject = require('gulp-inject')
 var pug = require('gulp-pug')
+var rename = require('gulp-rename')
 var sass = require('gulp-sass')
 var uglify = require('gulp-uglify')
 
-// copy resources, including all images, to dist
-gulp.task('resources', function() {
-  return gulp
-    .src(['src/resources/*', 'src/resources/img/*'], {
-      base: 'src/resources/' // gulp will copy directories w/contents after specified base
-    })
-    .pipe(gulp.dest('dist/'))
+// Reminder: to include directories AND their contents, use gulp.src('path', { base: 'basePath' }).pipe(...)
+
+/* DELETE PREVIOUS BUILD */
+gulp.task('clean', function() {
+  return del(['dist/'])
+})
+
+/* MOVE FONTS, IMAGES, AND OTHER SUPPORTING FILES TO DIST */
+// copy php and txt files to dist
+gulp.task('files', function() {
+  return gulp.src(['src/*.php', 'src/*.txt']).pipe(gulp.dest('dist/'))
 })
 
 // copy font-awesome fonts to dist
@@ -23,25 +31,74 @@ gulp.task('fonts', function() {
   return gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest('dist/fonts/'))
 })
 
+// copy non-thumbnail images to dist
+gulp.task('img', function() {
+  return gulp.src(['src/img/*', '!src/img/thumbs/']).pipe(gulp.dest('dist/img/'))
+})
+
+// resize thumbnail images for desktop
+// rename the result
+// copy to dist
+gulp.task('thumbs-lg', function() {
+  return gulp
+    .src('src/img/thumbs/*')
+    .pipe(
+      imageResize({
+        width: 750, // passed as pixel or percentage value to ImageMagick
+        //height: 70,
+        crop: false,
+        upscale: false,
+        quality: 0.9,
+        //format: '.jpg' // can override original file format
+        imageMagick: true, // otherwise will use GrahicsMagick
+        interlace: true
+      })
+    )
+    .pipe(rename(path => (path.basename += '-lg')))
+    .pipe(gulp.dest('dist/img/thumbs/'))
+})
+
+// resize thumbnail images for mobile
+// rename the result
+// copy to dist
+gulp.task('thumbs-sm', function() {
+  return gulp
+    .src('src/img/thumbs/*')
+    .pipe(
+      imageResize({
+        width: 250, // passed as pixel or percentage value to imagemagick
+        //height: 70,
+        crop: false,
+        upscale: false,
+        quality: 0.9,
+        //format: '.jpg' // can override original file format
+        imageMagick: true, // otherwise will use GrahicsMagick
+        interlace: true
+      })
+    )
+    .pipe(rename(path => (path.basename += '-sm')))
+    .pipe(gulp.dest('dist/img/thumbs/'))
+})
+
+// combined resources tasks
+gulp.task('resources', gulp.parallel('files', 'fonts', 'img', 'thumbs-lg', 'thumbs-sm'))
+
+/* CREATE CSS AND JS INJECTORS */
 // convert scss from font-awesome and src/scss to css
 // concatenate it into a single file
 // autoprefix it
 // clean it
 // put it in dist/styles
-// stream updates to the browser.
+// stream
 gulp.task('scss', function() {
   return gulp
     .src(['node_modules/font-awesome/scss/*.scss', 'src/scss/*.scss'])
-    .pipe(
-      sass({
-        'sourcemap=none': true
-      })
-    )
+    .pipe(sass())
     .pipe(concat('styles.min.css'))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(gulp.dest('dist/styles/'))
-    .pipe(browserSync.stream())
+    .pipe(bs.stream())
 })
 
 // Concat jquery into one file with src JS
@@ -54,33 +111,49 @@ gulp.task('js', function() {
     .pipe(concat('index.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist/js/'))
-    .pipe(browserSync.stream())
+    .pipe(bs.stream())
 })
 
-//These sources will be injected into pug templates
-var sources = gulp.src(['dist/styles/*.css', 'dist/js/*.js'], { read: false })
+// combined injectors task - these sources will be injected into pug templates
+gulp.task('injectors', gulp.parallel('scss', 'js'))
 
-// import sites.json object for pug to iterate (see index.pug middle)
+// injector file paths - variable must be set with *.css and *.js files in dist or will not work
+function setInjectors() {
+  var injectors = gulp.src(['dist/styles/*.css', 'dist/js/*.js'], { read: false })
+  return injectors
+}
+
+/* RENDER PUG FILES */
+// index.html
+// import sites.json object for pug to iterate - multiple ways to do this, but fs method works with browserSync
 // inject sources with proper paths
-// build index.html
+// render it
 // put it in dist
 // stream
-gulp.task('index', () => {
+gulp.task('index', function() {
   var target = gulp.src('src/index.pug', { read: true })
-
   return target
-    .pipe(data(file => require('./src/sites.json')))
-    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(
+      data(file => {
+        return JSON.parse(fs.readFileSync('./src/sites.json'))
+      })
+    )
+    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(pug())
     .pipe(gulp.dest('dist/'))
-    .pipe(browserSync.stream())
+    .pipe(bs.stream())
 })
 
-//Render thanks.html
-gulp.task('thanks', function buildHTML() {
+// thanks.html
+// inject sources with proper paths
+// render stream with locals
+// name it
+// put it in dist
+// stream
+gulp.task('ty', function() {
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -91,14 +164,14 @@ gulp.task('thanks', function buildHTML() {
     )
     .pipe(concat('thanks.html'))
     .pipe(gulp.dest('dist/'))
-    .pipe(browserSync.stream())
+    .pipe(bs.stream())
 })
 
-//Render error404.html
-gulp.task('missing', function buildHTML() {
+// error404.html
+gulp.task('404', function() {
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -109,14 +182,14 @@ gulp.task('missing', function buildHTML() {
     )
     .pipe(concat('error404.html'))
     .pipe(gulp.dest('dist/'))
-    .pipe(browserSync.stream())
+    .pipe(bs.stream())
 })
 
-//Render error501.html
-gulp.task('fiveOhOne', function buildHTML() {
+// error501.html
+gulp.task('501', function() {
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(sources, { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -127,26 +200,39 @@ gulp.task('fiveOhOne', function buildHTML() {
     )
     .pipe(concat('error501.html'))
     .pipe(gulp.dest('dist/'))
-    .pipe(browserSync.stream())
+    .pipe(bs.stream())
 })
 
-// Static server + watchin scss/js/pug files
+// combined pug task - render pug files with appropriate injections and locals
+gulp.task('pug', gulp.parallel('index', 'ty', '404', '501'))
+
+/* COMPLETE BUILD TASK */
+gulp.task('build', gulp.series('clean', gulp.parallel('resources', 'injectors'), 'pug'))
+
+// Static server + watch files
 gulp.task(
-  'start',
-  ['resources', 'fonts', 'scss', 'js', 'index', 'thanks', 'missing', 'fiveOhOne'],
-  function() {
-    browserSync.init({
+  'watch',
+  gulp.series('build', function() {
+    bs.init({
       server: {
         baseDir: 'dist/'
       }
     })
-    gulp.watch('src/scss/*.scss', ['scss'])
-    gulp.watch('src/js/*.js', ['js'])
-    gulp.watch('src/index.pug', ['index'])
-    gulp.watch('src/sites.json', ['index']) //This doesn't quite work but tries
-    gulp.watch('src/thanksAndError.pug', ['thanks'])
-    gulp.watch('src/thanksAndError.pug', ['missing'])
-    gulp.watch('src/thanksAndError.pug', ['fiveOhOne'])
-    gulp.watch('*.html').on('change', browserSync.reload)
-  }
+
+    gulp.watch(
+      [
+        'src/*.php',
+        'src/*.txt',
+        'node_modules/font-awesome/fonts/*',
+        'src/img/*',
+        'src/img/thumbs/*'
+      ],
+      gulp.series('resources')
+    )
+    gulp.watch('src/scss/*.scss', gulp.series('scss'))
+    gulp.watch('src/js/*.js', gulp.series('js'))
+    gulp.watch(['src/sites.json', 'src/index.pug'], gulp.series('index'))
+    gulp.watch('src/thanksAndError.pug', gulp.parallel('ty', '404', '501'))
+    gulp.watch('dist/*.html').on('change', bs.reload)
+  })
 )

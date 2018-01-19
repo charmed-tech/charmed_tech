@@ -6,7 +6,7 @@ html(lang='en')
         //- {{name}}:{{ext}}
         //- endinject
     body
-        div.navbar
+        nav.navbar
             a(href='#home') Home
             span &nbsp;
             a(href='#projects') Projects
@@ -14,7 +14,7 @@ html(lang='en')
             a(href='#contact') Contact
         noscript
             div#ns Please enable Javascript. This site will not function properly without it.
-        div#home.top-section
+        header#home.top-section
             div.contents
                 div.sub-title Welcome to
                 div.main-title
@@ -27,45 +27,48 @@ html(lang='en')
                         i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub!')
                     a(href='https://twitter.com/CharmedSatyr')
                         i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
-        div#projects.middle-section
+        main#projects.middle-section
             each val in sites
-                div#container
-                    div.text
+                section#container
+                    summary.text
                         a(href=`${val.url}`)
                             h2 #{val.title}
                         p #{val.description}
-                    div.thumbnail
+                    figure.thumbnail
                         a(href=`${val.url}`)
-                            img(src=`${val.img}`)
+                            img(alt=`${val.title}` title=`${val.title}` data-src-full=`${val.img_lg}` data-src-mobile=`${val.img_sm}` src=`${val.img_lg}` rel='noopener' target='_blank')
         // Contact
-        div.bottom-section#contact
+        footer.bottom-section#contact
             div.contents
                 h3 Send me a message 
                     i.fa.fa-send
-                div
-                    form(method="post" action="contact.php")
-                        div Name
-                            span.error *
+                form(method="post" action="contact.php")
+                    label(for='nameEntry') Name
+                        span.error *
                         div#nameError.error
                         input#nameEntry(type="text" name="nameEntry")
-                        div Email
-                            span.error *
+                    br
+                    label(for='emailEntry') Email
+                        span.error *
                         div#emailError.error
                         input#emailEntry(type="text" name="emailEntry")
-                        div Website
+                    br
+                    label(for='websiteEntry') Website
                         div#websiteError.error
                         input#websiteEntry(type="text" name="websiteEntry")
-                        div Subject
-                            span.error *
+                    br
+                    label(for='subjectEntry') Subject
+                        span.error *
                         div#subjectError.error
                         input#subjectEntry(type="text" name="subjectEntry")
-                        div Message
-                            span.error *
+                    br
+                    label(for='messageEntry') Message
+                        span.error *
                         div#messageError.error
                         textarea#messageEntry(type="text" rows='8' name="messageEntry")
-                        br
-                        div#submit(type="submit" value="Submit" class='submit') Submit
-                        input#submitReal(type="submit" value="Real")
+                    br
+                    label#submit(type="submit" value="Submit" class='submit') Submit
+                    input#submitReal(type="submit" value="Real")
         //- inject:js
         //- {{name}}.{{ext}}
         //- endinject

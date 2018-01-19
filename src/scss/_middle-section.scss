@@ -11,6 +11,11 @@
     margin-bottom: 18%;
     text-align: justify;
 
+    @media screen and (max-width: 1500px) {
+      img[data-src-mobile] {
+        content: attr(data-src-mobile, url);
+      }
+    }
     h2 {
       font-family: 'Inconsolata', monospace;
       text-align: left;
