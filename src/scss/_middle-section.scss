@@ -11,11 +11,10 @@
     margin-bottom: 18%;
     text-align: justify;
 
-    @media screen and (max-width: 1500px) {
-      img[data-src-mobile] {
-        content: attr(data-src-mobile, url);
-      }
+    @media screen and (max-width: $smscreen) {
+      flex-direction: column;
     }
+
     h2 {
       font-family: 'Inconsolata', monospace;
       text-align: left;
@@ -43,9 +42,14 @@
       .thumbnail {
         order: 1;
       }
+      @media screen and (max-width: $smscreen) {
+        .text {
+          order: 1;
+        }
+        .thumbnail {
+          order: 2;
+        }
+      }
     }
   }
 }
-/* 
-MUST RE-ADD MEDIA QUERIES
-*/
