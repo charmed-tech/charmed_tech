@@ -33,9 +33,9 @@ html(lang='en')
                     summary.text
                         a(href=`${val.url}`)
                             h2 #{val.title}
-                        p #{val.description}
+                        p !{val.description}
                     figure.thumbnail
-                        a(href=`${val.url}`)
+                        a(href=`${val.url}` rel='noopener' target='_blank')
                             img(alt=`${val.title}` title=`${val.title}` data-src-full=`${val.img_lg}` data-src-mobile=`${val.img_sm}` src=`${val.img_lg}` rel='noopener' target='_blank')
         // Contact
         footer.bottom-section#contact
