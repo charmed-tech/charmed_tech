@@ -1,5 +1,0 @@
-# Blocks robots from all files / directories except /index.html
-
-User-agent: *
-Disallow: /
-Allow: /index.html
