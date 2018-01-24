@@ -45,13 +45,14 @@ gulp.task('thumbs-lg', function() {
     .pipe(
       imageResize({
         width: 750, // passed as pixel or percentage value to ImageMagick
-        //height: 70,
-        crop: false,
+        height: 500,
+        crop: true,
         upscale: false,
         quality: 0.9,
         //format: '.jpg' // can override original file format
         imageMagick: true, // otherwise will use GrahicsMagick
-        interlace: true
+        interlace: true,
+        cover: true
       })
     )
     .pipe(rename(path => (path.basename += '-lg')))
@@ -66,14 +67,15 @@ gulp.task('thumbs-sm', function() {
     .src('src/img/thumbs/*')
     .pipe(
       imageResize({
-        width: 250, // passed as pixel or percentage value to imagemagick
-        //height: 70,
-        crop: false,
+        width: 400, // passed as pixel or percentage value to imagemagick
+        height: 267,
+        crop: true,
         upscale: false,
         quality: 0.9,
         //format: '.jpg' // can override original file format
         imageMagick: true, // otherwise will use GrahicsMagick
-        interlace: true
+        interlace: true,
+        cover: true
       })
     )
     .pipe(rename(path => (path.basename += '-sm')))
