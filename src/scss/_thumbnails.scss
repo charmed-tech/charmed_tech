@@ -9,27 +9,14 @@
 
     @include image-respond(150px);
 
-    @media screen and (min-width: 250px) {
-      @include image-respond(200px);
+    $breaks: 250, 300, 350, 400, 450, 500, 550;
+    @each $i in $breaks {
+      $r: $i - 50px;
+      @media screen and (min-width: #{$i}px) {
+        @include image-respond($i - 50px);
+      }
     }
-    @media screen and (min-width: 300px) {
-      @include image-respond(250px);
-    }
-    @media screen and (min-width: 350px) {
-      @include image-respond(300px);
-    }
-    @media screen and (min-width: 400px) {
-      @include image-respond(350px);
-    }
-    @media screen and (min-width: 450px) {
-      @include image-respond(400px);
-    }
-    @media screen and (min-width: 500px) {
-      @include image-respond(450px);
-    }
-    @media screen and (min-width: 550px) {
-      @include image-respond(500px);
-    }
+
     @media screen and (min-width: 600px) {
       @include image-respond(525px);
     }
