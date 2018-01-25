@@ -1,37 +1,32 @@
-@mixin image-respond($w) {
+// Set image height and width
+@mixin img-dimensions($w) {
   height: $w * 0.667;
   width: $w;
 }
 
-.thumbnail {
-  img {
-    border: 1px solid $dark;
-
-    @include image-respond(150px);
-
-    $breaks: 250, 300, 350, 400, 450, 500, 550;
-    @each $i in $breaks {
-      $r: $i - 50px;
-      @media screen and (min-width: #{$i}px) {
-        @include image-respond($i - 50px);
-      }
-    }
-
-    @media screen and (min-width: 600px) {
-      @include image-respond(525px);
-    }
-    @media screen and (min-width: 1080px) {
-      @include image-respond(550px);
-    }
-    @media screen and (min-width: 1200px) {
-      @include image-respond(650px);
-    }
-    @media screen and (min-width: 1440px) {
-      @include image-respond(750px);
-    }
-
-    &:hover {
-      box-shadow: 0 0 5px $dark;
-    }
+// Set a minimum screen width for given img-dimensions
+@mixin image-media($w, $minW) {
+  @media screen and (min-width: $minW) {
+    @include img-dimensions($w);
   }
+}
+
+@mixin thumb-media() {
+  // default
+  @include img-dimensions(150px);
+
+  // small screen min-width breakpoints
+  $breaks: 250, 300, 350, 400, 450, 500, 550;
+
+  // img width is 50px smaller than screen width
+  @each $i in $breaks {
+    $r: $i - 50px;
+    @include image-media($r, #{$i}px);
+  }
+
+  // larger screen min-width breakpoints manually set
+  @include image-media(525px, 600px);
+  @include image-media(550px, 1080px);
+  @include image-media(650px, 1200px);
+  @include image-media(750px, 1440px);
 }

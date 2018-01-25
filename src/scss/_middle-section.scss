@@ -27,6 +27,19 @@
     .text {
       margin: 5%;
     }
+
+    .thumbnail {
+      img {
+        border: 1px solid $dark;
+
+        @include thumb-media();
+
+        &:hover {
+          box-shadow: 0 0 5px $dark;
+        }
+      }
+    }
+
     &:nth-child(odd) {
       .text {
         order: 1;
