@@ -4,7 +4,7 @@
   width: $w;
 }
 
-// Set a minimum screen width for given img-dimensions
+// Set minimum screen width for given img-dimensions
 @mixin image-media($w, $minW) {
   @media screen and (min-width: $minW) {
     @include img-dimensions($w);
