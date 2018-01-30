@@ -1,7 +1,5 @@
 .middle-section {
   background: $light url('../img/ignasi_pattern_s.png');
-  color: $dark;
-  font-size: 200%;
   padding: 10% 2% 2%;
 
   #container {
@@ -9,29 +7,27 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 18%;
-    text-align: justify;
-
-    @media screen and (max-width: $smscreen) {
-      flex-direction: column;
-    }
-
-    h2 {
-      font-family: 'Inconsolata', monospace;
-      text-align: left;
-    }
-
-    a {
-      color: $dark;
-    }
 
     .text {
+      color: $dark;
       margin: 5%;
+      font-size: 24px;
+      text-align: justify;
+
+      a {
+        color: $dark;
+      }
+
+      h2 {
+        text-align: left;
+      }
     }
 
     .thumbnail {
       img {
         border: 1px solid $dark;
 
+        // mixin from _thumbnails.scss
         @include thumb-media();
 
         &:hover {
@@ -40,6 +36,7 @@
       }
     }
 
+    // thumbnail and description alternate places by default
     &:nth-child(odd) {
       .text {
         order: 1;
@@ -55,7 +52,11 @@
       .thumbnail {
         order: 1;
       }
+
+      //on narrow screens, text is always above thumbnails
       @media screen and (max-width: $smscreen) {
+        flex-direction: column;
+
         .text {
           order: 1;
         }
