@@ -27,8 +27,13 @@ gulp.task('files', function() {
 })
 
 // copy font-awesome fonts to dist
-gulp.task('fonts', function() {
+gulp.task('fa', function() {
   return gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest('dist/fonts/'))
+})
+
+// copy other chosen fonts to dist
+gulp.task('fonts', function() {
+  return gulp.src('src/fonts/**', { base: 'src/fonts/' }).pipe(gulp.dest('dist/fonts/'))
 })
 
 // copy non-thumbnail images to dist
@@ -83,7 +88,7 @@ gulp.task('thumbs-sm', function() {
 })
 
 // combined resources tasks
-gulp.task('resources', gulp.parallel('files', 'fonts', 'img', 'thumbs-lg', 'thumbs-sm'))
+gulp.task('resources', gulp.parallel('files', 'fa', 'fonts', 'img', 'thumbs-lg', 'thumbs-sm'))
 
 /* CREATE CSS AND JS INJECTORS */
 // convert scss from font-awesome and src/scss to css
