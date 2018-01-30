@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Dosis-ExtraLight';
+  src: url('../fonts/Dosis/Dosis-ExtraLight/Dosis-ExtraLight.eot');
+  src: url('../fonts/Dosis/Dosis-ExtraLight/Dosis-ExtraLight.woff2') format('woff2'),
+    url('../fonts/Dosis/Dosis-ExtraLight/Dosis-ExtraLight.woff') format('woff'),
+    url('../fonts/Dosis/Dosis-ExtraLight/Dosis-ExtraLight.ttf') format('truetype'),
+    url('../fonts/Dosis/Dosis-ExtraLight/Dosis-ExtraLight.svg#Dosis-ExtraLight') format('svg'),
+    url('../fonts/Dosis/Dosis-ExtraLight/Dosis-ExtraLight.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inconsolata-Bold';
+  src: url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.eot');
+  src: url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.woff2') format('woff2'),
+    url('Inconsolata-Bold.woff') format('woff'),
+    url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.ttf') format('truetype'),
+    url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.svg#Inconsolata-Bold') format('svg'),
+    url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.eot?#iefix')
+      format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}

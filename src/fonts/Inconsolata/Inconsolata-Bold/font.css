@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Inconsolata-Bold';
+  src: url('Inconsolata-Bold.eot');
+  src: url('Inconsolata-Bold.woff2') format('woff2'),
+       url('Inconsolata-Bold.woff') format('woff'),
+       url('Inconsolata-Bold.ttf') format('truetype'),
+       url('Inconsolata-Bold.svg#Inconsolata-Bold') format('svg'),
+       url('Inconsolata-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
