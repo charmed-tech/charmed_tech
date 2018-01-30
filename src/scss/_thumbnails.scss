@@ -1,3 +1,12 @@
+// Set font sizes for content in middle section
+@mixin font-sizes($h, $c) {
+  h2 {
+    font-size: $h;
+  }
+
+  font-size: $c;
+}
+
 // Set image height and width
 @mixin img-dimensions($w) {
   height: $w * 0.667;
