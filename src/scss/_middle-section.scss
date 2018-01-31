@@ -5,13 +5,14 @@
   #container {
     align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 18%;
 
     .text {
       color: $dark;
       margin: 5%;
       font-size: 24px;
+      order: 1;
       text-align: justify;
 
       a {
@@ -24,6 +25,7 @@
     }
 
     .thumbnail {
+      order: 2;
       img {
         border: 1px solid $dark;
 
@@ -36,33 +38,18 @@
       }
     }
 
-    // thumbnail and description alternate places by default
-    &:nth-child(odd) {
-      .text {
-        order: 1;
-      }
-      .thumbnail {
-        order: 2;
-      }
-    }
-    &:nth-child(even) {
-      .text {
-        order: 2;
-      }
-      .thumbnail {
-        order: 1;
-      }
-
-      //on narrow screens, text is always above thumbnails
-      @media screen and (max-width: $smscreen) {
-        flex-direction: column;
-
+    // thumbnail and description are in a column by default
+    // however, on wider screens they can spread out.
+    // text and image placement will alternate
+    @media screen and (min-width: $smscreen) {
+      flex-direction: row;
+      &:nth-child(even) {
         .text {
-          order: 1;
-        }
-        .thumbnail {
           order: 2;
         }
+      }
+      .thumbnail {
+        order: 1;
       }
     }
   }
