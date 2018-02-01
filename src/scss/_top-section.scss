@@ -1,23 +1,3 @@
-@mixin top-fs($top-mt-fs, $top-sub-fs, $top-fa) {
-  .top-section {
-    .contents {
-      .main-title {
-        font-size: $top-mt-fs;
-      }
-
-      .sub-title {
-        font-size: $top-sub-fs;
-      }
-
-      .buttons {
-        .fa {
-          font-size: $top-fa;
-        }
-      }
-    }
-  }
-}
-
 .top-section {
   align-items: center;
   background: $dark url('../img/gwangan.jpg') top center no-repeat;
@@ -36,10 +16,17 @@
       margin-bottom: 1%;
       user-select: none;
 
+      @media screen and (max-width: 420px), screen and (max-height: 420px) {
+        font-size: 500%;
+      }
+
+      @media screen and (min-width: 1023px) {
+        font-size: 1000%;
+      }
+
       .charmed {
         color: $dark;
         font-family: $thick-font;
-        font-weight: 600;
         text-shadow: 1px 1px 6px $light, -1px 0 6px $dark;
       }
 
@@ -47,7 +34,6 @@
         color: $light;
         text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
         font-variant: small-caps;
-        font-weight: 400;
         font-family: $thin-font;
       }
     }
@@ -89,17 +75,3 @@
     }
   }
 }
-@media screen and (max-height: 420px) {
-  @include top-fs(750%, 350%, 400%);
-}
-@media screen and (max-height: 376px) {
-  @include top-fs(750%, 250%, 300%);
-}
-/*
-@media screen and (max-width: 321px) {
-     @include top-fs(800%, 500%, 400%);
-}
-@media screen and (min-width:721px) {
-     @include top-fs(700%, 400%, 400%);
-}
-*/
