@@ -3,7 +3,7 @@
     {
       "title": "Sorcerer City",
       "description":
-        "This fantasy-themed, Pinterest-like inspiration engine posts your titled images and snaps them to a best-fit React Masonry grid. Built on Node.js with React, Express, Mongoose, and Semantic UI React, the app employs a websocket layer to instantly update cards and likes even if you don't refresh your browser. All the JavaScript, down to the <code>webpack.config.babel.js</code>, is written in ES6+. Be sure to share HTTPS image urls!",
+        "This fantasy-themed, Pinterest-like inspiration engine posts your titled images and snaps them to a best-fit React Masonry grid. Built on Node.js with React, Express, Mongoose, and Semantic UI React, the app employs a websocket layer to instantly update cards and likes even if you don't refresh your browser. All the JavaScript, down to the <code>webpack.<br/>config.b<br/>abel.js</code>, is written in ES6+. Be sure to share HTTPS image urls!",
       "url": "https://sorcerer-city.herokuapp.com",
       "img_lg": "img/thumbs/sorcerer_city-lg.png",
       "img_sm": "img/thumbs/sorcerer_city-sm.png"
