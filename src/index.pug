@@ -50,7 +50,8 @@ html(lang='en')
                         p !{val.description}
                     figure.thumbnail
                         a(href=`${val.url}` rel='noopener' target='_blank')
-                            img(alt=`${val.title}` title=`${val.title}` data-src-full=`${val.img_lg}` data-src-mobile=`${val.img_sm}` src=`${val.img_lg}` rel='noopener' target='_blank')
+                            img(alt=`${val.title}` class='img-desktop' rel='noopener' src=`${val.img_lg}` target='_blank' title=`${val.title}`)
+                            img(alt=`${val.title}` class='img-mobile' rel='noopener' src=`${val.img_sm}` target='_blank' title=`${val.title}`)
         // Contact
         footer.bottom-section#contact
             div.contents
