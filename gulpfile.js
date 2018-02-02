@@ -72,8 +72,8 @@ gulp.task('thumbs-sm', function() {
     .src('src/img/thumbs/*')
     .pipe(
       imageResize({
-        width: 400, // passed as pixel or percentage value to imagemagick
-        height: 267,
+        width: 450, // passed as pixel or percentage value to imagemagick
+        height: 300,
         crop: true,
         upscale: false,
         quality: 0.9,
