@@ -16,10 +16,11 @@
   a {
     color: $light;
   }
+
   @media screen and (max-width: 320px) {
     @include nav(120%, 3%);
   }
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 321px) {
     @include nav(200%, 2%);
   }
   @media screen and (min-width: 666px) and (orientation: landscape) {
