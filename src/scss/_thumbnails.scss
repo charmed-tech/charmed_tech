@@ -1,10 +1,22 @@
-// Set font sizes for content in middle section
-@mixin font-sizes($h, $c) {
-  h2 {
-    font-size: $h;
+// gulpfile.js resizes thumbnail images at a 3/2 w/h ratio
+// lg: 750px x 500px
+// sm: 450px x 300px
+// show the small image unless screen width is at least $fs or default
+@mixin img-file($fs: 500px) {
+  .img-mobile {
+    display: block;
   }
-
-  font-size: $c;
+  .img-desktop {
+    display: none;
+  }
+  @media screen and (min-width: $fs) {
+    .img-mobile {
+      display: none;
+    }
+    .img-desktop {
+      display: block;
+    }
+  }
 }
 
 // Set image height and width
@@ -20,22 +32,32 @@
   }
 }
 
-@mixin thumb-media() {
-  // default
-  @include img-dimensions(150px);
+@mixin img-style() {
+  // image file depends on screen width
+  @include img-file();
 
-  // small screen min-width breakpoints
-  $breaks: 250, 300, 350, 400, 450, 500, 550;
+  img {
+    // basic styling
+    border: 1px solid $dark;
+    &:hover {
+      box-shadow: 0 0 5px $dark;
+    }
 
-  // img width is 50px smaller than screen width
-  @each $i in $breaks {
-    $r: $i - 50px;
-    @include image-media($r, #{$i}px);
+    // default size
+    @include img-dimensions(150px);
+
+    // smaller screen min-width breakpoints
+    $breaks: 250, 300, 350, 400, 450, 500, 550;
+
+    // img width is slightly smaller than screen width
+    @each $i in $breaks {
+      $r: $i - 15px;
+      @include image-media($r, #{$i}px);
+    }
+
+    // larger screen min-width breakpoints
+    @include image-media(550px, 1080px);
+    @include image-media(650px, 1200px);
+    @include image-media(750px, 1440px);
   }
-
-  // larger screen min-width breakpoints manually set
-  @include image-media(525px, 600px);
-  @include image-media(550px, 1080px);
-  @include image-media(650px, 1200px);
-  @include image-media(750px, 1440px);
 }
