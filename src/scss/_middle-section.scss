@@ -26,22 +26,14 @@
 
     .thumbnail {
       order: 2;
-      img {
-        border: 1px solid $dark;
-
-        // mixin from _thumbnails.scss
-        @include thumb-media();
-
-        &:hover {
-          box-shadow: 0 0 5px $dark;
-        }
-      }
+      // mixin from _thumbnails.scss
+      @include img-style();
     }
 
     // thumbnail and description are in a column by default
     // however, on wider screens they can spread out.
     // text and image placement will alternate
-    @media screen and (min-width: $smscreen) {
+    @media screen and (min-width: $lgscreen) {
       flex-direction: row;
       &:nth-child(even) {
         .text {
