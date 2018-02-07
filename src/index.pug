@@ -1,90 +1,92 @@
 doctype html
 html(lang='en')
-    head
-        meta(charset="UTF-8")
-        meta(name='viewport' content='width=device-width, initial-scale=1')
-        meta(name="author" content="CharmedSatyr")
-        meta(name="description" content="Say something nice about Charmed Tech")
-        link(rel="shortcut icon" href="img/favicon.ico")
-        // prefetch resources for portfolio sites
-        // pinterest
-        // charmed-books
-        // op.pe
-        // simon
-        // wikipedia
-        // recipe box
-        // security
-        // my environment
-        // charmed.tech
-        //- inject:css
-        //- {{name}}:{{ext}}
-        //- endinject
-    body
-        nav.navbar
-            a(href='#home') Home
-            span &nbsp;
-            a(href='#projects') Projects
-            span &nbsp;
-            a(href='#contact') Contact
-        noscript
-            div#ns Please enable Javascript. This site will not function properly without it.
-        header#home.top-section
-            div.contents
-                div.sub-title Welcome to
-                div.main-title
-                    span.charmed Charmed
-                    br
-                    span.tech Tech
-                br
-                div.buttons
-                    a(href='https://github.com/CharmedSatyr')
-                        i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub!')
-                    a(href='https://twitter.com/CharmedSatyr')
-                        i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
-        main#projects.middle-section
-            each val in sites
-                section#container
-                    summary.text
-                        a(href=`${val.url}`)
-                            h2 #{val.title}
-                        p !{val.description}
-                    figure.thumbnail
-                        a(href=`${val.url}` rel='noopener' target='_blank')
-                            img(alt=`${val.title}` class='img-desktop' rel='noopener' src=`${val.img_lg}` target='_blank' title=`${val.title}`)
-                            img(alt=`${val.title}` class='img-mobile' rel='noopener' src=`${val.img_sm}` target='_blank' title=`${val.title}`)
-        // Contact
-        footer.bottom-section#contact
-            div.contents
-                h3 Send me a message 
-                    i.fa.fa-send
-                form(method="post" action="contact.php" id="contactForm")
-                    label(for='nameEntry') Name
-                        span.error *
-                        div#nameError.error
-                        input#nameEntry(type="text" name="nameEntry")
-                    br
-                    label(for='emailEntry') Email
-                        span.error *
-                        div#emailError.error
-                        input#emailEntry(type="text" name="emailEntry")
-                    br
-                    label(for='websiteEntry') Website
-                        div#websiteError.error
-                        input#websiteEntry(type="text" name="websiteEntry")
-                    br
-                    label(for='subjectEntry') Subject
-                        span.error *
-                        div#subjectError.error
-                        input#subjectEntry(type="text" name="subjectEntry")
-                    br
-                    label(for='messageEntry') Message
-                        span.error *
-                        div#messageError.error
-                        textarea#messageEntry(type="text" rows='4' name="messageEntry")
-                    br
-                    // NOTE: This button does not have type="submit"
-                    // Submission handled by contact.js validation
-                    label#submit(type="submit" value="Submit" class='submit') Submit
-        //- inject:js
-        //- {{name}}.{{ext}}
-        //- endinject
+  head
+    meta(charset="UTF-8")
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name="author" content="CharmedSatyr")
+    meta(name="description" content="Say something nice about Charmed Tech")
+    link(rel="shortcut icon" href="img/favicon.ico")
+    // prefetch resources for portfolio sites
+    // pinterest
+    // charmed-books
+    // op.pe
+    // simon
+    // wikipedia
+    // recipe box
+    // security
+    // my environment
+    // charmed.tech
+    //- inject:css
+    //- {{name}}:{{ext}}
+    //- endinject
+  body
+    nav.navbar
+      a(href='#home') Home
+      span &nbsp;
+      a(href='#projects') Projects
+      span &nbsp;
+      a(href='#contact') Contact
+    noscript
+      div#ns Please enable Javascript. This site will not function properly without it.
+    header#home.top-section
+      div.contents
+        div.sub-title Welcome to
+        div.main-title
+          span.charmed Charmed
+          br
+          span.tech Tech
+        br
+        div.buttons
+          a(href='https://github.com/CharmedSatyr' rel='noopener' target='_blank')
+            i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub')
+          a(href='https://twitter.com/CharmedSatyr' rel='noopener' target='_blank')
+            i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
+          a(href='https://keybase.io/CharmedSatyr' rel='noopener' target='_blank')
+            img.keybase(src='../img/ms-icon-310x310.png' title='See my Keybase.io proofs' alt='Keybase.io icon')
+    main#projects.middle-section
+      each val in sites
+        section#container
+          summary.text
+            a(href=`${val.url}`)
+              h2 #{val.title}
+            p !{val.description}
+          figure.thumbnail
+            a(href=`${val.url}` rel='noopener' target='_blank')
+              img(alt=`${val.title}` class='img-desktop' rel='noopener' src=`${val.img_lg}` target='_blank' title=`${val.title}`)
+              img(alt=`${val.title}` class='img-mobile' rel='noopener' src=`${val.img_sm}` target='_blank' title=`${val.title}`)
+    // Contact
+    footer.bottom-section#contact
+      div.contents
+        h3 Send me a message 
+          i.fa.fa-send
+        form(method="post" action="contact.php" id="contactForm")
+          label(for='nameEntry') Name
+            span.error *
+            div#nameError.error
+            input#nameEntry(type="text" name="nameEntry")
+          br
+          label(for='emailEntry') Email
+            span.error *
+            div#emailError.error
+            input#emailEntry(type="text" name="emailEntry")
+          br
+          label(for='websiteEntry') Website
+            div#websiteError.error
+            input#websiteEntry(type="text" name="websiteEntry")
+          br
+          label(for='subjectEntry') Subject
+            span.error *
+            div#subjectError.error
+            input#subjectEntry(type="text" name="subjectEntry")
+          br
+          label(for='messageEntry') Message
+            span.error *
+            div#messageError.error
+            textarea#messageEntry(type="text" rows='4' name="messageEntry")
+          br
+          // NOTE: This button does not have type="submit"
+          // Submission handled by contact.js validation
+          label#submit(type="submit" value="Submit" class='submit') Submit
+    //- inject:js
+    //- {{name}}.{{ext}}
+    //- endinject
