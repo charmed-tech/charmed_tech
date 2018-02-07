@@ -57,7 +57,7 @@ html(lang='en')
             div.contents
                 h3 Send me a message 
                     i.fa.fa-send
-                form(method="post" action="contact.php")
+                form(method="post" action="contact.php" id="contactForm")
                     label(for='nameEntry') Name
                         span.error *
                         div#nameError.error
@@ -82,8 +82,9 @@ html(lang='en')
                         div#messageError.error
                         textarea#messageEntry(type="text" rows='4' name="messageEntry")
                     br
+                    // NOTE: This button does not have type="submit"
+                    // Submission handled by contact.js validation
                     label#submit(type="submit" value="Submit" class='submit') Submit
-                    input#submitReal(type="submit" value="Real")
         //- inject:js
         //- {{name}}.{{ext}}
         //- endinject
