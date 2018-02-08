@@ -1,33 +1,35 @@
 doctype html
-html(lang='en')
+html(lang='en-US')
   head
     meta(charset="UTF-8")
     meta(name='viewport' content='width=device-width, initial-scale=1')
+    //- Title
+    title Charmed Tech | Available for Hire
+    //- Metadata
     meta(name="author" content="CharmedSatyr")
-    meta(name="description" content="Say something nice about Charmed Tech")
+    meta(name="description" content="Looking to hire a full stack JavaScript developer full time or for your next website? Check out CharmedSatyr's online portfolio and get in touch today!")
+    meta(name="keywords" content="full stack developer, javascript, react, web developer, fullstack, portfolio")
+    //- Favicon
     link(rel="shortcut icon" href="img/favicon.ico")
-    // prefetch resources for portfolio sites
-    // pinterest
-    // charmed-books
-    // op.pe
-    // simon
-    // wikipedia
-    // recipe box
-    // security
-    // my environment
-    // charmed.tech
+    //- Pre-inititate DNS, TCP, TLS connections for portfolio links
+    each val in sites
+      link(rel="preconnect" href=`${val.url}`)
+    //- Injected styles
     //- inject:css
     //- {{name}}:{{ext}}
     //- endinject
   body
+    //- Fixed navbar
     nav.navbar
       a(href='#home') Home
       span &nbsp;
       a(href='#projects') Projects
       span &nbsp;
       a(href='#contact') Contact
+    //- Message when JS is blocked
     noscript
-      div#ns Please enable Javascript. This site will not function properly without it.
+      div#ns You'll be able to see most of this site without JavaScript, but please enable it to use the contact form.
+    //- Landing view
     header#home.top-section
       div.contents
         div.sub-title Welcome to
@@ -36,6 +38,7 @@ html(lang='en')
           br
           span.tech Tech
         br
+        //- Social media buttons
         div.buttons
           a(href='https://github.com/CharmedSatyr' rel='noopener' target='_blank')
             i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub')
@@ -43,18 +46,24 @@ html(lang='en')
             i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
           a(href='https://keybase.io/CharmedSatyr' rel='noopener' target='_blank')
             img.keybase(src='../img/ms-icon-310x310.png' title='See my Keybase.io proofs' alt='Keybase.io icon')
+    //- Showcased sites are dynamically added from sites.json via Gulp
+    //- These sites are preconnected in the document head for faster load
     main#projects.middle-section
       each val in sites
         section#container
           summary.text
-            a(href=`${val.url}`)
+            //- Pug 2 documentation incomplete re: $, #, `` use
+            //- when attribute values are interpolated from external object
+            a(href=`${val.url}` rel='noopener' target='_blank')
               h2 #{val.title}
+            //- The ! prefix permits unescaped code interpolation
             p !{val.description}
           figure.thumbnail
             a(href=`${val.url}` rel='noopener' target='_blank')
+              //- Images automatically resized in Gulp and used per media queries
               img(alt=`${val.title}` class='img-desktop' rel='noopener' src=`${val.img_lg}` target='_blank' title=`${val.title}`)
               img(alt=`${val.title}` class='img-mobile' rel='noopener' src=`${val.img_sm}` target='_blank' title=`${val.title}`)
-    // Contact
+    //- Contact form
     footer.bottom-section#contact
       div.contents
         h3 Send me a message 
@@ -84,9 +93,10 @@ html(lang='en')
             div#messageError.error
             textarea#messageEntry(type="text" rows='4' name="messageEntry")
           br
-          // NOTE: This button does not have type="submit"
-          // Submission handled by contact.js validation
+          //- NOTE: This button does not have type="submit"
+          //- Submission handled by contact.js validation
           label#submit(type="submit" value="Submit" class='submit') Submit
+    //- Injected scripts
     //- inject:js
     //- {{name}}.{{ext}}
     //- endinject
