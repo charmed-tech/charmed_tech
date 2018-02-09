@@ -53,35 +53,48 @@
     }
 
     .buttons {
-      display: inline;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
 
-      .fa {
-        border-radius: 100%;
-        color: $dark;
-        font-size: 500%;
-        margin-left: 15px;
-        margin-right: 15px;
-        text-align: center;
-        text-shadow: 1px 1px 4px $light, -1px 0 4px $light;
+      a {
+        display: flex; // This exists to keep the .circle element aligned behind the keybase img
 
-        .fa-github {
-          &:hover {
-            text-shadow: 0 0 6px $blue, 0 0 4px $blue;
+        // Font Awesome icons
+        .fa {
+          color: $dark;
+          font-size: 500%;
+
+          &.fa-github {
+            &:hover {
+              text-shadow: 0 0 6px $green, 0 0 4px $green;
+            }
+          }
+
+          &.fa-twitter {
+            &:hover {
+              text-shadow: 2px 2px 4px $blue, -2px -2px 4px $blue, 2px -2px 4px $blue,
+                -2px 2px 4px $gold;
+            }
           }
         }
 
-        .fa-twitter {
+        // keybase img file (not font!) is square, so box-shadow doesn't work
+        // instead, a circle div sits behind it and lights up on hover
+        .circle {
+          border-radius: 100% 100% 70% 70%;
+          height: 68px;
+          width: 79px;
+
           &:hover {
-            text-shadow: 2px 2px 4px $gold, -2px -2px 4px $gold, 2px -2px 4px $gold,
-              -2px 2px 4px $gold;
+            background: rgba(245, 228, 185, 0.7);
+            box-shadow: 0 0 6px $gold;
+          }
+          .keybase {
+            height: 75px;
+            margin-top: -6px;
           }
         }
-      }
-      .keybase {
-        height: 75px;
-        margin-bottom: -3px;
-        margin-left: 15px;
-        margin-right: 15px;
       }
     }
   }

@@ -41,11 +41,14 @@ html(lang='en-US')
         //- Social media buttons
         div.buttons
           a(href='https://github.com/CharmedSatyr' rel='noopener' target='_blank')
-            i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub')
+            div
+              i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub')
           a(href='https://twitter.com/CharmedSatyr' rel='noopener' target='_blank')
-            i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
+            div
+              i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
           a(href='https://keybase.io/CharmedSatyr' rel='noopener' target='_blank')
-            img.keybase(src='../img/ms-icon-310x310.png' title='See my Keybase.io proofs' alt='Keybase.io icon')
+            div.circle
+              img.keybase(src='../img/ms-icon-310x310.png' title='See my Keybase.io proofs' alt='Keybase.io icon')
     //- Showcased sites are dynamically added from sites.json via Gulp
     //- These sites are preconnected in the document head for faster load
     main#projects.middle-section
