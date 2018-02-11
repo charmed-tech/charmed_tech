@@ -1,0 +1,27 @@
+footer {
+  align-items: center;
+  bottom: 0;
+  color: $light;
+  display: flex;
+  font-size: 20px;
+  height: 10vh;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  z-index: 10;
+
+  a {
+    color: $light;
+  }
+
+  .fa-heart {
+    color: $red;
+  }
+  .fa-bug {
+    color: $green;
+  }
+  .fa-asterisk {
+    color: $gold;
+  }
+}
