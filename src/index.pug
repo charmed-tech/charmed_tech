@@ -67,7 +67,7 @@ html(lang='en-US')
               img(alt=`${val.title}` class='img-desktop' rel='noopener' src=`${val.img_lg}` target='_blank' title=`${val.title}`)
               img(alt=`${val.title}` class='img-mobile' rel='noopener' src=`${val.img_sm}` target='_blank' title=`${val.title}`)
     //- Contact form
-    footer.bottom-section#contact
+    section.bottom-section#contact
       div.contents
         h3 Send me a message 
           i.fa.fa-send
@@ -98,7 +98,24 @@ html(lang='en-US')
           br
           //- NOTE: This button does not have type="submit"
           //- Submission handled by contact.js validation
-          label#submit(type="submit" value="Submit" class='submit') Submit
+          button#submit(type="submit" value="Submit" class='submit') Submit
+    //- Footer
+    footer
+      div Thank you
+        | &nbsp;
+        | for visiting my site!&nbsp;&nbsp;&nbsp;
+        i.fa.fa-heart(aria-hidden: 'true')
+          | &nbsp;&nbsp;&nbsp;
+        | View this project on 
+        | &nbsp;
+        a.github(href='https://github.com/CharmedSatyr/charmed_tech' rel='nofollow' target='_blank')
+          i.github.fa.fa-github(aria-hidden: 'true')
+          | &nbsp;
+          | GitHub
+        | &nbsp;&nbsp;&nbsp;
+        i.fa.fa-bug(aria-hidden: 'true')
+          | &nbsp;&nbsp;&nbsp;
+        a(href='https://github.com/CharmedSatyr/charmed_tech/blob/master/LICENSE' rel='nofollow' target='_blank') GNU General Public License v3.0
     //- Injected scripts
     //- inject:js
     //- {{name}}.{{ext}}
