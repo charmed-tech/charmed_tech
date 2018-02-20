@@ -1,6 +1,7 @@
 .top-section {
   align-items: center;
   background: $dark url('../img/gwangan.jpg') top center/cover no-repeat;
+  border: 1px solid $dark;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -73,7 +74,7 @@
 
           &.fa-twitter {
             &:hover {
-              text-shadow: 2px 2px 4px $blue, -2px -2px 4px $blue, 2px -2px 4px $blue,
+              text-shadow: 2px 2px 4px $purple, -2px -2px 4px $purple, 2px -2px 4px $purple,
                 -2px 2px 4px $gold;
             }
           }
@@ -82,6 +83,7 @@
         // keybase img file (not font!) is square, so box-shadow doesn't work
         // instead, a circle div sits behind it and lights up on hover
         .circle {
+          background: rgba(21, 21, 21, 0.05);
           border-radius: 100% 100% 70% 70%;
           height: 68px;
           width: 79px;
@@ -90,6 +92,7 @@
             background: rgba(245, 228, 185, 0.7);
             box-shadow: 0 0 6px $gold;
           }
+
           .keybase {
             height: 75px;
             margin-top: -6px;

@@ -21,11 +21,17 @@ html(lang='en-US')
   body
     //- Fixed navbar
     nav.navbar
-      a(href='#home') Home
-      span &nbsp;
-      a(href='#projects') Projects
-      span &nbsp;
-      a(href='#contact') Contact
+      a(href='#home')
+        span Home
+      | &nbsp;
+      a(href='#projects')
+        span Projects
+      | &nbsp;
+      a(href='#about')
+        span About
+      | &nbsp;
+      a(href='#contact')
+        span Contact
     //- Message when JS is blocked
     noscript
       div#ns You'll be able to see most of this site without JavaScript, but please enable it to use the contact form.
@@ -49,26 +55,79 @@ html(lang='en-US')
           a(href='https://keybase.io/CharmedSatyr' rel='noopener' target='_blank')
             div.circle
               img.keybase(src='../img/ms-icon-310x310.png' title='See my Keybase.io proofs' alt='Keybase.io icon')
-    //- Showcased sites are dynamically added from sites.json via Gulp
-    //- These sites are preconnected in the document head for faster load
-    main#projects.middle-section
-      each val in sites
-        section#container
-          summary.text
-            //- Pug 2 documentation incomplete re: $, #, `` use
-            //- when attribute values are interpolated from external object
-            a(href=`${val.url}` rel='noopener' target='_blank')
-              h2 #{val.title}
-            //- The ! prefix permits unescaped code interpolation
-            p !{val.description}
+    main.middle-section
+      //- Showcased sites are dynamically added from sites.json via Gulp
+      //- These sites are preconnected in the document head for faster load
+      section#projects
+        h2.heading Recent Projects
+        each val in sites
+          article#project
+            figcaption.text
+              //- NOTE: Pug 2 documentation incomplete re: $, #, `` use
+              //- when attribute values are interpolated from external object
+              a(href=`${val.url}` rel='noopener' target='_blank')
+                h2 #{val.title}
+              //- The ! prefix permits unescaped code interpolation
+              p !{val.description}
+            figure.thumbnail
+              a(href=`${val.url}` rel='noopener' target='_blank')
+                //- Images automatically resized in Gulp and used per media queries
+                img(alt=`${val.title}` class='img-desktop' src=`${val.img_lg}` title=`${val.title}`)
+                img(alt=`${val.title}` class='img-mobile' src=`${val.img_sm}` title=`${val.title}`)
+      //- About section - different format from projects
+      section#about
+        h2.heading About Me
+        //- Pic + description takes the same style as a project for now
+        article#project
+          figcaption.text
+            h2 Call me CharmedSatyr...
+            p I'm a self-taught JavaScript developer currently living in Busan, South Korea. My first Hackathon was a Google Startup Weekend, and my team won First Prize! Check out my
+              | &nbsp;
+              a(href='https://charmedsatyr.com' rel='noopener' target='_blank')
+                span development site
+              | &nbsp;
+              | to see other projects I've worked on, read my code on
+              | &nbsp;
+              a(href='https://github.com' rel='noopener' target='_blank')
+                span GitHub
+              | , or follow me on
+              | &nbsp;
+              a(href='https://github.com' rel='noopener' target='_blank')
+                span Twitter
+              | &nbsp;
+              | to see what I'm up to now.
           figure.thumbnail
-            a(href=`${val.url}` rel='noopener' target='_blank')
-              //- Images automatically resized in Gulp and used per media queries
-              img(alt=`${val.title}` class='img-desktop' rel='noopener' src=`${val.img_lg}` target='_blank' title=`${val.title}`)
-              img(alt=`${val.title}` class='img-mobile' rel='noopener' src=`${val.img_sm}` target='_blank' title=`${val.title}`)
+            a(href='#contact')
+              img(alt='hackathon team photo' class='img-mobile' src='img/thumbs/google_entrepreneurs-sm.jpg' title="Let's team up!")
+              img(alt='hackathon team photo' class='img-desktop' src='img/thumbs/google_entrepreneurs-lg.jpg' title="Let's team up!")
+        h2(style='text-align: center; order: 1;') Skills
+        article.skills
+          div
+            h4 Front End
+            p HTML5, Pug, CSS3, SASS/SCSS, JavaScript (ES5/6+), jQuery, React
+          div
+            h4 Back End
+            p Node, Express, MongoDB, Mongoose, Mustache, Socket.io, bcrypt, Passport
+          div
+            h4 Tools
+            p npm, Yarn, Git, Babel, Gulp, Webpack, Jest
+          div
+            h4 I also like learning about...
+            p bash/zsh scripting, privacy, and information security
+        h2(style='text-align: center') Development Environment
+        article.logos
+          a(href='https://www.debian.org' rel='noopener' target='_blank')
+            img(alt='Debian logo' src='img/debian.png' title='Debian')
+          a(href='https://github.com/robbyrussell/oh-my-zsh' rel='noopener' target='_blank')
+            img(alt='Oh My Zsh logo' src='img/oh-my-zsh.png' title='Oh My Zsh')
+          a.gnu(href='https://www.gnu.org/software/screen/' rel='noopener' target='_blank')
+            img(alt='GNU logo' src='img/gerwinski-gnu-head.png' title='GNU Screen')
+            | GNU Screen
+          a(href='https://www.vim.org' rel='noopener' target='_blank')
+            img(alt='Vim logo' src='img/vim-logo-en.png' title='Vim')
     //- Contact form
     section.bottom-section#contact
-      div.contents
+      article.contents
         h3 Send me a message 
           i.fa.fa-send
         form(method="post" action="contact.php" id="contactForm")
@@ -101,7 +160,7 @@ html(lang='en-US')
           button#submit(type="submit" value="Submit" class='submit') Submit
     //- Footer
     footer
-      div Thank you
+      article Thank you
         | &nbsp;
         | for visiting my site!&nbsp;&nbsp;&nbsp;
         i.fa.fa-heart(aria-hidden: 'true')

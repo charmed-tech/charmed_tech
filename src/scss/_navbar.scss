@@ -14,7 +14,10 @@
   width: 100vw;
 
   a {
-    color: $light;
+    color: $gold;
+    span {
+      color: $light;
+    }
   }
 
   @media screen and (max-width: 320px) {
