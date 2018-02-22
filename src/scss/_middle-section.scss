@@ -1,6 +1,5 @@
 .middle-section {
   background: $light url('../img/ignasi_pattern_s.png');
-  height: 100%; // Required or about will be truncated
 
   .heading {
     font-family: $thick-font;
@@ -14,7 +13,6 @@
   #about {
     padding: 5% 2% 2%;
   }
-
   // Individual projects
   #project {
     align-items: center;
@@ -75,15 +73,17 @@
   }
 
   #about {
+    background: $dark;
+    color: $light;
     font-size: 24px;
     margin-bottom: 18%;
-    // The top margin and padding cancel each other out
-    // Keeps spacing consistent + proper anchor jump spacing
-    margin-top: -22%;
-    padding-top: 18%;
+    margin-top: -10%;
 
-    h2 {
-      text-align: left;
+    #project {
+      margin-bottom: auto;
+      .text {
+        color: $light;
+      }
     }
 
     a {
@@ -97,7 +97,6 @@
       display: flex;
       justify-content: space-between;
       margin: 3%;
-      margin-top: -18%; // Compensates for #project margin-bottom
 
       h4 {
         margin-bottom: -7px;
@@ -114,7 +113,6 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      margin-top: 100px;
 
       .gnu {
         align-items: center;
