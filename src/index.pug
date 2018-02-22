@@ -59,7 +59,7 @@ html(lang='en-US')
       //- Showcased sites are dynamically added from sites.json via Gulp
       //- These sites are preconnected in the document head for faster load
       section#projects
-        h2.heading Recent Projects
+        h1.heading Recent Projects
         each val in sites
           article#project
             figcaption.text
@@ -76,12 +76,12 @@ html(lang='en-US')
                 img(alt=`${val.title}` class='img-mobile' src=`${val.img_sm}` title=`${val.title}`)
       //- About section - different format from projects
       section#about
-        h2.heading About Me
+        h1.heading About Me
         //- Pic + description takes the same style as a project for now
         article#project
           figcaption.text
             h2 Call me CharmedSatyr...
-            p I'm a self-taught JavaScript developer currently living in Busan, South Korea. My first Hackathon was a Google Startup Weekend, and my team won First Prize! Check out my
+            p I'm an American JavaScript developer currently teaching in Busan, South Korea. I studied political philosophy in the US and UK and worked for years in DC politics. I love FOSS, civil liberties, and Cajun breakfasts with my hacker crew. Check out my
               | &nbsp;
               a(href='https://charmedsatyr.com' rel='noopener' target='_blank')
                 span development site
@@ -100,7 +100,7 @@ html(lang='en-US')
             a(href='#contact')
               img(alt='hackathon team photo' class='img-mobile' src='img/thumbs/google_entrepreneurs-sm.jpg' title="Let's team up!")
               img(alt='hackathon team photo' class='img-desktop' src='img/thumbs/google_entrepreneurs-lg.jpg' title="Let's team up!")
-        h2(style='text-align: center; order: 1;') Skills
+        h2(style='text-align: center;') Skills
         article.skills
           div
             h4 Front End
@@ -112,9 +112,9 @@ html(lang='en-US')
             h4 Tools
             p npm, Yarn, Git, Babel, Gulp, Webpack, Jest
           div
-            h4 I also like learning about...
-            p bash/zsh scripting, privacy, and information security
-        h2(style='text-align: center') Development Environment
+            h4 Tinkering with...
+            p bash/zsh scripting, information security
+        h2(style='text-align: center;') Development Environment
         article.logos
           a(href='https://www.debian.org' rel='noopener' target='_blank')
             img(alt='Debian logo' src='img/debian.png' title='Debian')
