@@ -49,20 +49,20 @@
       "img_sm": "img/thumbs/markdown_previewer-sm.png"
     },
     {
-      "title": "freeCodeCamp",
-      "description":
-        "I am in the final stages of earning my Full Stack JavaScript Development Certificate from freeCodeCamp! I've already learned <a href='https://www.freecodecamp.org/charmedsatyr/front-end-certification' rel='noopener' target='_blank'><span>Front End</span></a> and <a href='https://www.freecodecamp.org/charmedsatyr/back-end-certification' rel='noopener' target='_blank'><span>Back End Development</span></a>, and I am working my way through FCC's D3 and Computer Science courses. You can view my projects and 350+ challenge solutions at my freeCodeCamp <a href='https://www.freecodecamp.org/charmedsatyr' rel='noopener' target='_blank'><span>profile page</span></a>.",
-      "url": "https://freecodecamp.org/charmedsatyr",
-      "img_lg": "img/thumbs/freecodecamp-lg.png",
-      "img_sm": "img/thumbs/freecodecamp-sm.png"
-    },
-    {
       "title": "Wikipedia Viewer",
       "description":
         "Type your query to automagically search the entire Wikipedia API for articles. If you're up for an adventure, try clicking Random and probe an obscure branch of human knowledge.",
       "url": "https://charmedsatyr.github.io/wikipedia_viewer",
       "img_lg": "img/thumbs/wikipedia_viewer-lg.png",
       "img_sm": "img/thumbs/wikipedia_viewer-sm.png"
+    },
+    {
+      "title": "freeCodeCamp",
+      "description":
+        "I am in the final stages of earning my Full Stack JavaScript Development Certificate from freeCodeCamp! I've already learned <a href='https://www.freecodecamp.org/charmedsatyr/front-end-certification' rel='noopener' target='_blank'><span>Front End</span></a> and <a href='https://www.freecodecamp.org/charmedsatyr/back-end-certification' rel='noopener' target='_blank'><span>Back End Development</span></a>, and I am working my way through FCC's D3 and Computer Science courses. You can view my projects and 350+ challenge solutions at my freeCodeCamp <a href='https://www.freecodecamp.org/charmedsatyr' rel='noopener' target='_blank'><span>profile page</span></a>.",
+      "url": "https://freecodecamp.org/charmedsatyr",
+      "img_lg": "img/thumbs/freecodecamp-lg.png",
+      "img_sm": "img/thumbs/freecodecamp-sm.png"
     }
   ]
 }
