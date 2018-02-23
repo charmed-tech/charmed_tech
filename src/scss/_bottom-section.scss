@@ -1,5 +1,6 @@
 .bottom-section {
   align-items: center;
+  // clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%);
   color: $light;
   display: flex;
   height: 90vh;
@@ -7,6 +8,7 @@
   text-align: center;
 
   .contents {
+    background: $dark;
     font-size: 26px;
     margin-bottom: 30px;
     width: 50%;
