@@ -1,0 +1,66 @@
+#about {
+  background: $blue;
+  color: $light;
+  font-size: 24px;
+  height: 100%;
+  margin-bottom: 18%;
+  margin-top: -10%;
+  padding: 5% 2% 2%;
+  //  position: absolute;
+  clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%);
+
+  .bio {
+    @include showcase();
+    margin-bottom: auto;
+    .text {
+      color: $light;
+      p a {
+        color: $red !important; // Override blue showcase underlines
+      }
+    }
+  }
+
+  a {
+    color: $dark;
+  }
+  .skills {
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+
+    h4 {
+      margin-bottom: -7px;
+    }
+
+    * {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
+
+  .logos {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .gnu {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    img {
+      height: 200px;
+      margin: 5%;
+    }
+
+    @media screen and (max-width: 720px) {
+      flex-direction: column;
+      img {
+        height: 150px;
+      }
+    }
+  }
+}

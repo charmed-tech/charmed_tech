@@ -61,3 +61,59 @@
     @include image-media(750px, 1440px);
   }
 }
+
+@mixin showcase() {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18%;
+
+  // showcase description
+  .text {
+    color: $dark;
+    margin: 5%;
+    font-size: 24px;
+    order: 1;
+    text-align: justify;
+
+    h2 {
+      text-align: left;
+    }
+    // title url underlines
+    a {
+      color: $green;
+      h2 {
+        color: $dark;
+      }
+    }
+
+    // description url underlines
+    p a {
+      color: $blue;
+      span {
+        color: $dark;
+      }
+    }
+  }
+
+  // Project thumbnail
+  .thumbnail {
+    order: 2;
+    @include img-style();
+  }
+
+  // thumbnail and description are in a column by default
+  // however, on wider screens they can spread out.
+  // text and image placement will alternate
+  @media screen and (min-width: $lgscreen) {
+    flex-direction: row;
+    &:nth-child(even) {
+      .text {
+        order: 2;
+      }
+    }
+    .thumbnail {
+      order: 1;
+    }
+  }
+}
