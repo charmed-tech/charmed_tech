@@ -2,9 +2,11 @@
   align-items: center;
   background: $dark url('../img/gwangan.jpg') top center/cover no-repeat;
   border: 1px solid $dark;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 30px));
   display: flex;
-  height: 100vh;
+  height: calc(100vh + 30px);
   justify-content: center;
+  margin-bottom: -29px;
   padding-top: 2%;
   text-align: center;
 

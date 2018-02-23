@@ -1,17 +1,15 @@
 #about {
   background: $blue;
   color: $light;
+  clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 calc(100% - 30px));
   font-size: 24px;
-  height: 100%;
-  margin-bottom: 18%;
-  margin-top: -10%;
-  padding: 5% 2% 2%;
-  //  position: absolute;
-  clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -29px; // neg margin-top pulls
+  padding: 5% 2%;
 
   .bio {
     @include showcase();
     margin-bottom: auto;
+
     .text {
       color: $light;
       p a {
@@ -29,7 +27,7 @@
     margin: 3%;
 
     h4 {
-      margin-bottom: -7px;
+      margin-bottom: -10px;
     }
 
     * {
@@ -43,6 +41,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-bottom: 50px;
 
     .gnu {
       align-items: center;

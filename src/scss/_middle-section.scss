@@ -1,20 +1,8 @@
 .middle-section {
-  background: $light url('../img/ignasi_pattern_s.png');
-  //  clip-path: polygon(0 0, 100% 30px, 100% 100%, 0 100%);
-
   .heading {
     font-family: $thick-font;
     font-size: 48px;
     padding-left: 3%;
     text-align: left;
-  }
-
-  // Containers
-  #projects {
-    padding: 5% 2% 2%;
-    // Individual projects
-    #project {
-      @include showcase();
-    }
   }
 }

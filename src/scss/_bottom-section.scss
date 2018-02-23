@@ -1,10 +1,12 @@
 .bottom-section {
   align-items: center;
-  // clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 100%);
+  background: $dark;
+  clip-path: polygon(0 0, 100% 30px, 100% 100%, 0 100%);
   color: $light;
   display: flex;
   height: 90vh;
   justify-content: center;
+  padding-top: 50px;
   text-align: center;
 
   .contents {
