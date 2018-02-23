@@ -21,9 +21,9 @@ gulp.task('clean', function() {
 })
 
 /* MOVE FONTS, IMAGES, AND OTHER SUPPORTING FILES TO DIST */
-// copy php and txt files to dist
+// copy htaccess, php, and txt files to dist
 gulp.task('files', function() {
-  return gulp.src(['src/*.php', 'src/*.txt']).pipe(gulp.dest('dist/'))
+  return gulp.src(['src/.htaccess', 'src/*.php', 'src/*.txt']).pipe(gulp.dest('dist/'))
 })
 
 // copy font-awesome fonts to dist
