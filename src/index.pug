@@ -34,7 +34,7 @@ html(lang='en-US')
         span Contact
     //- Message when JS is blocked
     noscript
-      div#ns You'll be able to see most of this site without JavaScript, but please enable it to use the contact form.
+      div#ns You'll be able to use most features without JavaScript, but please enable it to use the contact form.
     //- Landing view
     header#home.top-section
       div.contents
@@ -125,39 +125,41 @@ html(lang='en-US')
             | GNU Screen
           a(href='https://www.vim.org' rel='noopener' target='_blank')
             img(alt='Vim logo' src='img/vim-logo-en.png' title='Vim')
-    //- Contact form
-    section.bottom-section#contact
-      article.contents
-        h3 Send me a message 
-          i.fa.fa-send
-        form(method="post" action="contact.php" id="contactForm")
-          label(for='nameEntry') Name
-            span.error *
-            div#nameError.error
-            input#nameEntry(type="text" name="nameEntry")
-          br
-          label(for='emailEntry') Email
-            span.error *
-            div#emailError.error
-            input#emailEntry(type="text" name="emailEntry")
-          br
-          label(for='websiteEntry') Website
-            div#websiteError.error
-            input#websiteEntry(type="text" name="websiteEntry")
-          br
-          label(for='subjectEntry') Subject
-            span.error *
-            div#subjectError.error
-            input#subjectEntry(type="text" name="subjectEntry")
-          br
-          label(for='messageEntry') Message
-            span.error *
-            div#messageError.error
-            textarea#messageEntry(type="text" rows='4' name="messageEntry")
-          br
-          //- NOTE: This button does not have type="submit"
-          //- Submission handled by contact.js validation
-          button#submit(type="submit" value="Submit" class='submit') Submit
+      //- Contact form
+      section.bottom-section#contact
+        article.contents
+          //- noscript 
+            p This form won't work without JavaScript. Email me: z \at\ charmed.tech 
+          h3 Send me a message 
+            i.fa.fa-send
+          form(method="post" action="contact.php" id="contactForm")
+            label(for='nameEntry') Name
+              span.error *
+              div#nameError.error
+              input#nameEntry(type="text" name="nameEntry")
+            br
+            label(for='emailEntry') Email
+              span.error *
+              div#emailError.error
+              input#emailEntry(type="text" name="emailEntry")
+            br
+            label(for='websiteEntry') Website
+              div#websiteError.error
+              input#websiteEntry(type="text" name="websiteEntry")
+            br
+            label(for='subjectEntry') Subject
+              span.error *
+              div#subjectError.error
+              input#subjectEntry(type="text" name="subjectEntry")
+            br
+            label(for='messageEntry') Message
+              span.error *
+              div#messageError.error
+              textarea#messageEntry(type="text" rows='4' name="messageEntry")
+            br
+            //- NOTE: This button does not have type="submit"
+            //- Submission handled by contact.js validation
+            button#submit(type="submit" value="Submit" class='submit') Submit
     //- Footer
     footer
       article Thank you
