@@ -85,13 +85,13 @@
         // keybase img file (not font!) is square, so box-shadow doesn't work
         // instead, a circle div sits behind it and lights up on hover
         .circle {
-          background: rgba(21, 21, 21, 0.05);
+          background: rgba($dark, 0.05);
           border-radius: 100% 100% 70% 70%;
           height: 68px;
           width: 79px;
 
           &:hover {
-            background: rgba(245, 228, 185, 0.7);
+            background: rgba($gold, 0.7);
             box-shadow: 0 0 6px $gold;
           }
 
