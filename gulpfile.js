@@ -31,8 +31,13 @@ gulp.task('fa', function() {
   return gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest('dist/fonts/'))
 })
 
+// copy devicon fonts to dist - using local copy because NPM package is out of date
+gulp.task('devicon', function() {
+  return gulp.src('src/devicon-master/fonts/*').pipe(gulp.dest('dist/styles/fonts/'))
+})
+
 // copy other chosen fonts to dist
-gulp.task('fonts', function() {
+gulp.task('local-fonts', function() {
   return gulp.src('src/fonts/**', { base: 'src/fonts/' }).pipe(gulp.dest('dist/fonts/'))
 })
 
@@ -88,18 +93,26 @@ gulp.task('thumbs-sm', function() {
 })
 
 // combined resources tasks
-gulp.task('resources', gulp.parallel('files', 'fa', 'fonts', 'img', 'thumbs-lg', 'thumbs-sm'))
+gulp.task(
+  'resources',
+  gulp.parallel('files', 'fa', 'devicon', 'local-fonts', 'img', 'thumbs-lg', 'thumbs-sm')
+)
 
 /* CREATE CSS AND JS INJECTORS */
-// convert scss from font-awesome and src/scss to css
-// concatenate it into a single file
-// autoprefix it
-// clean it
+// convert scss to css
+// concatenate it with local css files into a single file
+// autoprefix everything
+// clean everything
 // put it in dist/styles
 // stream
-gulp.task('scss', function() {
+gulp.task('styles', function() {
   return gulp
-    .src(['node_modules/font-awesome/scss/*.scss', 'src/scss/*.scss'])
+    .src([
+      'node_modules/font-awesome/scss/*.scss',
+      'src/devicon-master/devicon-colors.css',
+      'src/devicon-master/devicon.css',
+      'src/scss/*.scss'
+    ])
     .pipe(sass())
     .pipe(concat('styles.min.css'))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
@@ -122,7 +135,7 @@ gulp.task('js', function() {
 })
 
 // combined injectors task - these sources will be injected into pug templates
-gulp.task('injectors', gulp.parallel('scss', 'js'))
+gulp.task('injectors', gulp.parallel('styles', 'js'))
 
 // injector file paths - variable must be set with *.css and *.js files in dist or will not work
 function setInjectors() {
@@ -237,7 +250,7 @@ gulp.task(
       ],
       gulp.series('resources')
     )
-    gulp.watch('src/scss/*.scss', gulp.series('scss'))
+    gulp.watch('src/scss/*.scss', gulp.series('styles'))
     gulp.watch('src/js/*.js', gulp.series('js'))
     gulp.watch(['src/sites.json', 'src/index.pug'], gulp.series('index'))
     gulp.watch('src/thanksAndError.pug', gulp.parallel('ty', '404', '501'))

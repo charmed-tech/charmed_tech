@@ -1,42 +1,71 @@
 #about {
-  background: $blue;
-  color: $light;
+  background: $blue $dmosaic;
   clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 calc(100% - 30px));
+  color: $light;
   font-size: 24px;
-  margin-top: -29px; // neg margin-top pulls
+  margin-top: -29px; // neg margin-top pulls Projects section to fit with 1px dark border effect
   padding: 5% 2%;
+
+  h1 {
+    font-family: $thick-font;
+    font-size: 48px;
+    margin-bottom: 0;
+    padding-left: 3%;
+    text-align: left;
+  }
+
+  h2 {
+    color: $dark;
+    text-align: center;
+  }
+
+  a {
+    color: $red;
+    span {
+      color: $light;
+    }
+  }
 
   .bio {
     @include showcase();
-    margin-bottom: auto;
 
     .text {
       color: $light;
+      // Override mixin colors
       p a {
-        color: $red !important; // Override blue showcase underlines
+        color: $red;
+
+        span {
+          color: $light;
+        }
       }
     }
   }
 
-  a {
-    color: $dark;
-  }
   .skills {
-    display: flex;
-    justify-content: space-between;
-    margin: 3%;
+    margin: 0 5% 5%;
 
     h4 {
-      margin-bottom: -10px;
+      margin: 0;
     }
 
-    * {
-      margin-left: 8px;
-      margin-right: 8px;
+    p {
+      text-align: justify;
+    }
+
+    .devicons-section {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 48px;
+      justify-content: space-around;
+      margin-bottom: 10px;
+      text-shadow: 0.5px 0.5px 0 $dark, -0.5px -0.5px 0 $dark, 0.5px -0.5px 0 $light,
+        -0.5px 0.5px 0 $dark, 0 0 1px $light;
     }
   }
 
-  .logos {
+  .environment {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -50,16 +79,18 @@
       justify-content: center;
     }
 
+    a {
+      color: $dark;
+      text-decoration: none;
+    }
+
     img {
-      height: 200px;
+      height: 125px;
       margin: 5%;
     }
 
     @media screen and (max-width: 720px) {
       flex-direction: column;
-      img {
-        height: 150px;
-      }
     }
   }
 }

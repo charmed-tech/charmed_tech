@@ -38,6 +38,7 @@ html(lang='en-US')
     //- Landing view
     header#home.top-section
       div.contents
+        //- Should it say: "I make" ?
         div.sub-title Welcome to
         div.main-title
           span.charmed Charmed
@@ -48,18 +49,18 @@ html(lang='en-US')
         div.buttons
           a(href='https://github.com/CharmedSatyr' rel='noopener' target='_blank')
             div
-              i.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub')
+              span.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub')
           a(href='https://twitter.com/CharmedSatyr' rel='noopener' target='_blank')
             div
-              i.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
+              span.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
           a(href='https://keybase.io/CharmedSatyr' rel='noopener' target='_blank')
             div.circle
               img.keybase(src='../img/ms-icon-310x310.png' title='See my Keybase.io proofs' alt='Keybase.io icon')
-    main.middle-section
+    main
       //- Showcased sites are dynamically added from sites.json via Gulp
       //- These sites are preconnected in the document head for faster load
       section#projects
-        h1.heading Recent Projects
+        h1 Projects
         each val in sites
           article#project
             figcaption.text
@@ -76,7 +77,7 @@ html(lang='en-US')
                 img(alt=`${val.title}` class='img-mobile' src=`${val.img_sm}` title=`${val.title}`)
       //- About section - different format from projects
       section#about
-        h1.heading About Me
+        h1 About Me
         //- Pic + description takes the same style as a project for now
         article.bio
           figcaption.text
@@ -100,22 +101,38 @@ html(lang='en-US')
             a(href='#contact')
               img(alt='hackathon team photo' class='img-mobile' src='img/thumbs/google_entrepreneurs-sm.jpg' title="Let's team up!")
               img(alt='hackathon team photo' class='img-desktop' src='img/thumbs/google_entrepreneurs-lg.jpg' title="Let's team up!")
-        h2(style='text-align: center;') Skills
+        h2 Skills
         article.skills
-          div
-            h4 Front End
-            p HTML5, Pug, CSS3, SASS/SCSS, JavaScript (ES5/6+), jQuery, React
-          div
-            h4 Back End
-            p Node, Express, MongoDB, Mongoose, Mustache, Socket.io, bcrypt, Passport
-          div
-            h4 Tools
-            p npm, Yarn, Git, Babel, Gulp, Webpack, Jest
-          div
-            h4 Tinkering with...
-            p bash/zsh scripting, information security
-        h2(style='text-align: center;') Development Environment
-        article.logos
+          p I am passionate about learning and effectively deploying cutting-edge technologies. I have earned
+            | &nbsp;
+            a(href='https://www.freecodecamp.org/CharmedSatyr/front-end-certification' rel='noopener' target='_blank')
+              span Front End
+            | &nbsp;
+            | and
+            | &nbsp;
+            a(href='https://www.freecodecamp.org/CharmedSatyr/back-end-certification' rel='noopener' target='_blank')
+              span Back End
+            | &nbsp;
+            | web development certifications and am at home using HTML, CSS, and JavaScript. I'm particularly fond of the MERN stack (MongoDB, Express, React, and Node); preprocessors like Pug and SCSS; and tools like Git, Yarn, Gulp, and Webpack. I'm also working to improve my knowledge of shell scripting and information security to ensure my applications protect users and clients. Need me to learn a new tool, package, or framework for a project? Just ask.
+            div.devicons-section
+              span.devicon-html5-plain-wordmark.colored(aria-hidden: 'false' title='HTML 5')
+              span.devicon-css3-plain-wordmark.colored(aria-hidden: 'false' title='CSS 3')
+              span.devicon-bootstrap-plain-wordmark.colored(aria-hidden: 'false' title='Bootstrap')
+              span.devicon-sass-original.colored(aria-hidden: 'false' title='Sass/SCSS')
+              span.devicon-javascript-plain.colored(aria-hidden: 'false' title='JavaScript ES5/6+')
+              span.devicon-jquery-plain-wordmark.colored(aria-hidden: 'false' title='jQuery')
+              span.devicon-gulp-plain.colored(aria-hidden: 'false' title='Gulp')
+              span.devicon-babel-original.colored(aria-hidden: 'false' title='Babel')
+              span.devicon-webpack-plain-wordmark.colored(aria-hidden: 'false' title='Webpack')
+              span.devicon-react-plain-wordmark.colored(aria-hidden: 'false' title='React')
+              span.devicon-nodejs-plain-wordmark.colored(aria-hidden: 'false' title='Node.js')
+              span.devicon-yarn-plain-wordmark.colored(aria-hidden: 'false', title='Yarn')
+              span.devicon-mongodb-plain-wordmark.colored(aria-hidden: 'false' title='MongoDB/Mongoose')
+              span.devicon-express-original-wordmark.colored(aria-hidden: 'false' title='Express')
+              span.devicon-git-plain-wordmark.colored(aria-hidden: 'false' title='Git')
+              span.devicon-heroku-plain-wordmark.colored(aria-hidden: 'false' title='Heroku')
+        h2 Development Environment
+        article.environment
           a(href='https://www.debian.org' rel='noopener' target='_blank')
             img(alt='Debian logo' src='img/debian.png' title='Debian')
           a(href='https://github.com/robbyrussell/oh-my-zsh' rel='noopener' target='_blank')
@@ -126,12 +143,14 @@ html(lang='en-US')
           a(href='https://www.vim.org' rel='noopener' target='_blank')
             img(alt='Vim logo' src='img/vim-logo-en.png' title='Vim')
       //- Contact form
-      section.bottom-section#contact
+      section.contact#contact
         article.contents
-          //- noscript 
-            p This form won't work without JavaScript. Email me: z \at\ charmed.tech 
           h3 Send me a message 
-            i.fa.fa-send
+            span.fa.fa-send(aria-hidden: 'false')
+          noscript#ns
+            p This form won't work without JavaScript.
+            p Email me: z \at\ charmed.tech
+            br
           form(method="post" action="contact.php" id="contactForm")
             label(for='nameEntry') Name
               span.error *
@@ -165,16 +184,16 @@ html(lang='en-US')
       article Thank you
         | &nbsp;
         | for visiting my site!&nbsp;&nbsp;&nbsp;
-        i.fa.fa-heart(aria-hidden: 'true')
+        span.fa.fa-heart(aria-hidden: 'true')
           | &nbsp;&nbsp;&nbsp;
         | View this project on 
         | &nbsp;
         a.github(href='https://github.com/CharmedSatyr/charmed_tech' rel='nofollow' target='_blank')
-          i.github.fa.fa-github(aria-hidden: 'true')
+          span.github.fa.fa-github(aria-hidden: 'true')
           | &nbsp;
           | GitHub
         | &nbsp;&nbsp;&nbsp;
-        i.fa.fa-bug(aria-hidden: 'true')
+        span.fa.fa-bug(aria-hidden: 'true')
           | &nbsp;&nbsp;&nbsp;
         a(href='https://github.com/CharmedSatyr/charmed_tech/blob/master/LICENSE' rel='nofollow' target='_blank') GNU General Public License v3.0
     //- Injected scripts
