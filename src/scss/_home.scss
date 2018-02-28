@@ -1,4 +1,4 @@
-.top-section {
+#home {
   align-items: center;
   background: $dark url('../img/gwangan.jpg') top center/cover no-repeat;
   border: 1px solid $dark;
@@ -10,51 +10,46 @@
   padding-top: 2%;
   text-align: center;
 
+  // All landing page content
   .contents {
-    .main-title {
-      line-height: 75%;
-      margin-bottom: 1%;
-      user-select: none;
+    user-select: none;
 
-      @media screen and (max-width: 420px), screen and (max-height: 420px) {
-        font-size: 500%;
-      }
+    .satyr {
+      align-items: center;
+      background: rgba($gold, 0.3);
+      border: 8px solid $dark;
+      border-radius: 100%;
+      box-shadow: 1px 1px 1px $light, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
+      color: $dark;
+      display: flex;
+      font-size: 82px;
+      height: 130px;
+      justify-content: center;
+      margin: auto;
+      width: 130px;
+    }
 
-      @media screen and (min-width: 421px) and (min-height: 421px) {
-        font-size: 600%;
-      }
+    .title {
+      color: $dark;
+      font-family: $thick-font;
+      font-size: 52px;
+      text-shadow: 1px 1px 6px $light, -1px 0 6px $dark;
 
-      @media screen and (min-width: 720px) and (min-height: 720px) {
-        font-size: 700%;
-      }
-
-      @media screen and (min-width: 900px) and (min-height: 720px) {
-        font-size: 1000%;
-      }
-
-      .charmed {
-        color: $dark;
-        font-family: $thick-font;
-        text-shadow: 1px 1px 6px $light, -1px 0 6px $dark;
-      }
-
-      .tech {
-        color: $light;
-        text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
-        font-variant: small-caps;
-        font-family: $thin-font;
+      .dot {
+        color: $red;
+        text-shadow: 1px 1px 6px $light, -1px 0 6px $dark, -0.5px -0.5px 0 $dark;
       }
     }
 
-    .sub-title {
+    .subtitle {
       color: $light;
       font-family: $thin-font;
-      font-size: 450%;
-      margin-bottom: 0;
+      font-size: 42px;
+      font-variant: small-caps;
       text-shadow: 1px 1px 1px $dark, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
-      user-select: none;
     }
 
+    // Social buttons container
     .buttons {
       display: flex;
       justify-content: space-evenly;
@@ -66,7 +61,7 @@
         // Font Awesome icons
         .fa {
           color: $dark;
-          font-size: 500%;
+          font-size: 72px;
 
           &.fa-github {
             &:hover {
@@ -87,17 +82,18 @@
         .circle {
           background: rgba($dark, 0.05);
           border-radius: 100% 100% 70% 70%;
-          height: 68px;
-          width: 79px;
+          height: 52px;
+          padding-top: -10px;
+          width: 64px;
 
           &:hover {
             background: rgba($gold, 0.7);
-            box-shadow: 0 0 6px $gold;
+            box-shadow: 0 0 6px $gold, 0 -1px 10px $gold;
           }
 
           .keybase {
-            height: 75px;
-            margin-top: -6px;
+            height: 62px;
+            margin-top: -9px;
           }
         }
       }
