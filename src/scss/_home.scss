@@ -16,16 +16,18 @@
 
     .satyr {
       align-items: center;
-      background: rgba($gold, 0.3);
+      background: linear-gradient(250deg, $gold 15%, $red);
       border: 8px solid $dark;
       border-radius: 100%;
-      box-shadow: 1px 1px 1px $light, -1px -1px 1px $dark, -1px 1px 1px $dark, 1px -1px 1px $dark;
+      box-shadow: 0.5px 0 $gold, -1px 1px 5px $dark, inset -1px 1px 1px $red,
+        inset 1px -1px 1px $gold;
       color: $dark;
       display: flex;
       font-size: 82px;
       height: 130px;
       justify-content: center;
       margin: auto;
+      text-shadow: 0.5px 0.5px 1px $gold, -0.5px -0.5px 1px $gold, -0.5px 0.5px 1px $gold;
       width: 130px;
     }
 
