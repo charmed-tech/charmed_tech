@@ -31,11 +31,6 @@ gulp.task('fa', function() {
   return gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest('dist/fonts/'))
 })
 
-// copy devicon fonts to dist - using local copy because NPM package is out of date
-gulp.task('devicon', function() {
-  return gulp.src('src/devicon-master/fonts/*').pipe(gulp.dest('dist/styles/fonts/'))
-})
-
 // copy other chosen fonts to dist
 gulp.task('local-fonts', function() {
   return gulp.src('src/fonts/**', { base: 'src/fonts/' }).pipe(gulp.dest('dist/fonts/'))
@@ -93,26 +88,18 @@ gulp.task('thumbs-sm', function() {
 })
 
 // combined resources tasks
-gulp.task(
-  'resources',
-  gulp.parallel('files', 'fa', 'devicon', 'local-fonts', 'img', 'thumbs-lg', 'thumbs-sm')
-)
+gulp.task('resources', gulp.parallel('files', 'fa', 'local-fonts', 'img', 'thumbs-lg', 'thumbs-sm'))
 
 /* CREATE CSS AND JS INJECTORS */
 // convert scss to css
-// concatenate it with local css files into a single file
+// concatenate it into a single file
 // autoprefix everything
 // clean everything
 // put it in dist/styles
 // stream
 gulp.task('styles', function() {
   return gulp
-    .src([
-      'node_modules/font-awesome/scss/*.scss',
-      'src/devicon-master/devicon-colors.css',
-      'src/devicon-master/devicon.css',
-      'src/scss/*.scss'
-    ])
+    .src(['node_modules/font-awesome/scss/*.scss', 'src/scss/*.scss'])
     .pipe(sass())
     .pipe(concat('styles.min.css'))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
