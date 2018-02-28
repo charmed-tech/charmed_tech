@@ -12,6 +12,7 @@
     margin-bottom: 0;
     padding-left: 3%;
     text-align: left;
+    text-shadow: 0 0 1px $dark;
   }
 
   h2 {
@@ -31,6 +32,7 @@
 
     .text {
       color: $light;
+
       // Override mixin colors
       p a {
         color: $red;
@@ -38,6 +40,12 @@
         span {
           color: $light;
         }
+      }
+    }
+
+    .thumbnail {
+      img {
+        border: 1px solid $gold;
       }
     }
   }
