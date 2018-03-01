@@ -12,7 +12,7 @@
   }
 
   // Individual projects
-  #project {
+  .project {
     @include showcase();
 
     @media screen and (min-width: $lgscreen) {
