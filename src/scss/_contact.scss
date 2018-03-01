@@ -4,7 +4,6 @@
   clip-path: polygon(0 0, 100% 30px, 100% 100%, 0 100%);
   color: $light;
   display: flex;
-  height: 90vh;
   justify-content: center;
   margin-top: -29px;
   padding-top: 50px;
@@ -13,7 +12,8 @@
   .contents {
     background: $dark;
     font-size: 26px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     width: 50%;
 
     @media screen and (min-width: 1080px) {
