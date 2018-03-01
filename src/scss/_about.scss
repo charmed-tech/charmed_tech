@@ -2,7 +2,7 @@
   background: $blue $dmosaic;
   clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 calc(100% - 30px));
   color: $light;
-  font-size: 24px;
+  font-size: 26px;
   margin-top: -29px; // neg margin-top pulls Projects section to fit with 1px dark border effect
   padding: 5% 2%;
 
@@ -18,10 +18,12 @@
   h2 {
     color: $dark;
     text-align: center;
+    text-shadow: none;
   }
 
   a {
     color: $red;
+
     span {
       color: $light;
     }
@@ -32,13 +34,27 @@
 
     .text {
       color: $light;
+      text-shadow: 0 0 1px $dark;
+      p {
+        font-size: 26px;
+      }
+
+      .gold {
+        color: lighten($gold, 5%);
+      }
+
+      .green {
+        color: lighten($green, 10%);
+      }
 
       // Override mixin colors
       p a {
         color: $red;
+        text-shadow: none;
 
         span {
           color: $light;
+          text-shadow: 0 0 1px $dark;
         }
       }
     }
@@ -55,10 +71,12 @@
 
     h4 {
       margin: 0;
+      text-shadow: none;
     }
 
     p {
       text-align: justify;
+      text-shadow: 0 0 1px $dark;
     }
 
     .devicons-section {
