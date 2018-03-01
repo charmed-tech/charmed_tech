@@ -86,8 +86,7 @@
       font-size: 48px;
       justify-content: space-around;
       margin-bottom: 10px;
-      text-shadow: 0.5px 0.5px 0 $dark, -0.5px -0.5px 0 $dark, 0.5px -0.5px 0 $light,
-        -0.5px 0.5px 0 $dark, 0 0 1px $light;
+      text-shadow: -0.5px 0.5px 0 $dark, -0.5px 0 0 $dark, 0.5px -0.5px 0 $gold, 0 -0.5px 1px $gold;
     }
   }
 
