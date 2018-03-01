@@ -1,14 +1,12 @@
-@mixin nav($fs, $pad) {
-  padding: $pad;
-
-  a {
-    font-size: $fs;
-  }
-}
-
 .navbar {
   background: $dark;
+  display: flex;
+  flex-wrap: wrap;
   font-family: $thick-font;
+  font-size: 28px;
+  font-weight: 700;
+  margin-right: 5px;
+  padding: 6px;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -19,18 +17,5 @@
     span {
       color: $light;
     }
-  }
-
-  @media screen and (max-width: 320px) {
-    @include nav(120%, 3%);
-  }
-  @media screen and (min-width: 321px) {
-    @include nav(200%, 2%);
-  }
-  @media screen and (min-width: 666px) and (orientation: landscape) {
-    @include nav(180%, 1%);
-  }
-  @media screen and (min-width: 1024px) and (min-height: 720px) {
-    @include nav(180%, 1%);
   }
 }
