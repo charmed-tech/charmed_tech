@@ -6,17 +6,23 @@ html
     //- {{name}}:{{ext}}
     //- endinject
   body
-    div.navbar
-    div#home.top-section
+    div#home
       div.contents
-        div.main-title
-          span.tech #{thanksTop}#{missingTop}#{fiveOhOneTop}
-          br
-          span.charmed
-        div.sub-title #{thanksSub}#{missingSub}#{fiveOhOneSub}
+        div.satyr
+          span.satyr-logo(aria-hidden: 'true')
+        div.title #{thanksTop}#{missingTop}#{fiveOhOneTop}
+        hr
+        div.subtitle #{thanksSub}#{missingSub}#{fiveOhOneSub}
+        hr
+        //- Social media buttons
         div.buttons
-          a(href='https://github.com/CharmedSatyr' target='_blank')
-            i.fa.fa-github(aria-hidden='false' title='Read my code on GitHub!')
-          a(href='https://twitter.com/CharmedSatyr')
-            i.fa.fa-twitter(aria-hidden='false' title='Tweet me @CharmedSatyr')
+          a(href='https://github.com/CharmedSatyr' rel='noopener' target='_blank')
+            div
+              span.fa.fa-github(aria-hidden: 'false' title='Read my code on GitHub')
+          a(href='https://twitter.com/CharmedSatyr' rel='noopener' target='_blank')
+            div
+              span.fa.fa-twitter(aria-hidden: 'false' title='Tweet me @CharmedSatyr')
+          a(href='https://keybase.io/CharmedSatyr' rel='noopener' target='_blank')
+            div.circle
+              img.keybase(src='../img/ms-icon-310x310.png' title='See my Keybase.io proofs' alt='Keybase.io icon')
 
