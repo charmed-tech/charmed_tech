@@ -13,6 +13,7 @@ html(lang='en-US')
     link(rel="shortcut icon" href="img/favicon.ico")
     //- Pre-inititate DNS, TCP, TLS connections for portfolio links
     each val in sites
+      link(rel="dns-prefetch" href=`${val.url}`)
       link(rel="preconnect" href=`${val.url}`)
     //- Injected styles
     //- inject:css
