@@ -11,14 +11,25 @@
 }
 
 @font-face {
-  font-family: 'Inconsolata-Bold';
-  src: url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.eot');
-  src: url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.woff2') format('woff2'),
-    url('Inconsolata-Bold.woff') format('woff'),
-    url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.ttf') format('truetype'),
-    url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.svg#Inconsolata-Bold') format('svg'),
-    url('../fonts/Inconsolata/Inconsolata-Bold/Inconsolata-Bold.eot?#iefix')
-      format('embedded-opentype');
+  font-family: 'Play';
+  src: url('../fonts/Play/Play-Regular.eot');
+  src: url('../fonts/Play/Play-Regular.woff2') format('woff2'),
+    url('../fonts/Play/Play-Regular.woff') format('woff'),
+    url('../fonts/Play/Play-Regular.ttf') format('truetype'),
+    url('../fonts/Play/Play-Regular.svg#Play-Regular') format('svg'),
+    url('../fonts/Play/Play-Regular.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Play';
+  src: url('../fonts/Play/Play-Bold.eot');
+  src: url('../fonts/Play/Play-Bold.woff2') format('woff2'),
+    url('../fonts/Play/Play-Bold.woff') format('woff'),
+    url('../fonts/Play/Play-Bold.ttf') format('truetype'),
+    url('../fonts/Play/Play-Bold.svg#Play-Bold') format('svg'),
+    url('../fonts/Play/Play-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: 700;
   font-style: normal;
 }
