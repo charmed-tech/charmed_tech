@@ -55,6 +55,10 @@
         text-shadow: 0.5px 0.5px 1px $dark, -1px 0 6px $dark, -0.5px -0.5px 0 $dark,
           0.5px 0.5px 3px $light;
       }
+
+      @media screen and (max-width: 320px) {
+        font-size: 42px;
+      }
     }
 
     .subtitle {
