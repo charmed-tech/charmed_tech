@@ -1,6 +1,7 @@
 $('#submit').click(function() {
   //Testing values - 0 fails; 1 passes
   var noSubmit = [0, 0, 0, 0, 0]
+
   //Error handling for nameEntry
   var nameEntry = $('input[name=nameEntry]').val()
   var nameRegex = /^[a-zA-Z -]*$/
@@ -74,7 +75,7 @@ $('#submit').click(function() {
     return acc + curr
   })
 
-  if (a == 5) {
+  if (a === 5) {
     // console.log('All tests pass!');
     $('#contactForm').submit()
   }
