@@ -76,11 +76,8 @@
       text-shadow: 1px -1px 6px $light, -1px 0 6px $dark;
 
       a {
-        // This exists to keep the .circle element aligned behind the keybase img
-        display: flex;
-
         // Font Awesome icons
-        .fa {
+        .fab {
           color: $dark;
           font-size: 60px;
 
@@ -96,26 +93,17 @@
                 -2px 2px 4px $gold;
             }
           }
-        }
 
-        // keybase img file (not font!) is square, so box-shadow doesn't work
-        // instead, a circle div sits behind it and lights up on hover
-        .circle {
-          box-shadow: 1px -1px 6px $light, -1px 0 6px $dark, inset 0 0 5px $light;
-          border-radius: 100% 100% 70% 70%;
-          height: 46px;
-          margin-top: -6px;
-          padding-top: -10px;
-          width: 54px;
-
-          &:hover {
-            background: rgba($gold, 0.7);
-            box-shadow: 0 0 6px $gold, 0 -1px 10px $gold;
+          &.fa-mastodon {
+            &:hover {
+              text-shadow: 0 0 6px $gold, -1px -1px 6px $gold;
+            }
           }
 
-          .keybase {
-            height: 52px;
-            margin-top: -6px;
+          &.fa-keybase {
+            &:hover {
+              text-shadow: 0 0 4px $red, 0 0 4px $red;
+            }
           }
         }
       }
