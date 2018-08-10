@@ -7,15 +7,15 @@
   "license": "GPL-3.0",
   "private": false,
   "scripts": {
+    "clean": "gulp clean",
     "build": "gulp build",
-    "start": "gulp watch",
-    "clean": "gulp clean"
+    "start": "gulp clean; gulp build; gulp watch"
   },
   "dependencies": {},
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "browser-sync": "^2.23.5",
     "del": "^3.0.0",
-    "font-awesome": "^4.7.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-clean-css": "^3.9.2",

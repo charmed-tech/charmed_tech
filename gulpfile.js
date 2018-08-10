@@ -28,7 +28,9 @@ gulp.task('files', function() {
 
 // copy font-awesome fonts to dist
 gulp.task('fa', function() {
-  return gulp.src('node_modules/font-awesome/fonts/*').pipe(gulp.dest('dist/fonts/'))
+  return gulp
+    .src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
+    .pipe(gulp.dest('dist/fonts/fontawesome'))
 })
 
 // copy other chosen fonts to dist
@@ -98,14 +100,19 @@ gulp.task('resources', gulp.parallel('files', 'fa', 'local-fonts', 'img', 'thumb
 // put it in dist/styles
 // stream
 gulp.task('styles', function() {
-  return gulp
-    .src(['node_modules/font-awesome/scss/*.scss', 'src/scss/*.scss'])
-    .pipe(sass())
-    .pipe(concat('styles.min.css'))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('dist/styles/'))
-    .pipe(bs.stream())
+  return (
+    gulp
+      // Font Awesome SCSS manually copied from `node_modules` to `src/scss/fontawesome/`
+      // because it requires manual path updating in `fontawesome/_variables.scss`.
+      // Similar story for `src/scss/_devicon.scss`.
+      .src('src/scss/*.scss')
+      .pipe(sass())
+      .pipe(concat('styles.min.css'))
+      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
+      .pipe(cleanCSS({ compatibility: 'ie8' }))
+      .pipe(gulp.dest('dist/styles/'))
+      .pipe(bs.stream())
+  )
 })
 
 // Concat jquery into one file with src JS
