@@ -6,8 +6,12 @@
   display: flex;
   justify-content: center;
   margin-top: -29px;
-  padding-top: 50px;
+  padding-top: 75px;
   text-align: center;
+
+  &:focus {
+    outline: none;
+  }
 
   .contents {
     background: $dark;

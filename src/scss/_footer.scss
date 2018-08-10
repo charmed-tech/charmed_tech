@@ -12,17 +12,33 @@ footer {
   width: 100vw;
   z-index: 10;
 
-  a {
-    color: $light;
-  }
+  article {
+    padding-bottom: 4vh;
+    padding-top: 8vh;
 
-  .fa-heart {
-    color: $red;
-  }
-  .fa-bug {
-    color: $green;
-  }
-  .fa-asterisk {
-    color: $gold;
+    .fsf {
+      height: 35px;
+      margin-bottom: -10px;
+    }
+
+    .eff {
+      height: 45px;
+      margin-bottom: -15px;
+    }
+
+    a {
+      color: $light;
+    }
+
+    .fa-heart {
+      color: $red;
+    }
+    .fa-bug {
+      color: $green;
+    }
+    .fa-asterisk,
+    .fa-star {
+      color: $gold;
+    }
   }
 }
