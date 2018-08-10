@@ -8,7 +8,7 @@
   "private": false,
   "scripts": {
     "clean": "gulp clean",
-    "build": "gulp build",
+    "build": "gulp clean; gulp build",
     "start": "gulp clean; gulp build; gulp watch"
   },
   "dependencies": {},
