@@ -228,7 +228,7 @@ gulp.task(
   'watch',
   gulp.series('build', function() {
     bs.init({
-      browser: 'chromium-browser',
+      // browser: 'chromium-browser',
       server: {
         baseDir: 'dist/'
       }
