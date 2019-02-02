@@ -1,14 +1,10 @@
 doctype html
 html(lang='en-US')
   head
-    meta(charset="UTF-8")
-    meta(name='viewport' content='width=device-width, initial-scale=1')
     //- Title
     title Charmed Tech | Creative, Full Stack Web Applications
     //- Metadata
-    meta(name="author" content="CharmedSatyr")
-    meta(name="description" content="Looking to hire a full stack JavaScript developer full time or for your next website? Check out CharmedSatyr's online portfolio and get in touch today!")
-    meta(name="keywords" content="full stack developer, full stack, javascript, react, web developer, fullstack, portfolio")
+    include includes/meta.pug
     //- Favicon
     link(rel="shortcut icon" href="favicon.ico")
     //- Pre-inititate DNS, TCP, TLS connections for portfolio links
@@ -48,19 +44,7 @@ html(lang='en-US')
         div.subtitle Creative, Full Stack Web Applications
         hr
         //- Social media buttons
-        div.buttons
-          a(href='https://github.com/CharmedSatyr' rel='noopener' target='_blank')
-            div
-              span.fab.fa-github(aria-hidden='false' title='Read my code on GitHub')
-          a(href='https://twitter.com/CharmedSatyr' rel='noopener' target='_blank')
-            div
-              span.fab.fa-twitter(aria-hidden='false' title='Tweet me @CharmedSatyr')
-          a(href='https://social.nasqueron.org/@charmedsatyr' rel='noopener' target='_blank')
-            div
-              span.fab.fa-mastodon(aria-hidden='false' title='Toot me @CharmedSatyr@social.nasqueron.org')
-          a(href='https://keybase.io/CharmedSatyr' rel='noopener' target='_blank')
-            div
-              span.fab.fa-keybase(aria-hidden='false' title='Check my Keybase proofs')
+        include includes/social.pug
     main
       //- Showcased sites are dynamically added from sites.json via Gulp
       //- These sites are preconnected in the document head for faster load
