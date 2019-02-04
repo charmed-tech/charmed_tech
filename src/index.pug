@@ -144,15 +144,16 @@ html(lang='en-US')
             br
           p Let's work together!
           form(method="post" action="contact.php" id="contactForm")
+            //- Validation error text handled in contact.js
             label(for='nameEntry') Name
               span.error *
               div#nameError.error
-              input#nameEntry(type="text" name="nameEntry")
+              input#nameEntry(type="text" name="nameEntry" required)
             br
             label(for='emailEntry') Email
               span.error *
               div#emailError.error
-              input#emailEntry(type="text" name="emailEntry")
+              input#emailEntry(type="email" name="emailEntry" required)
             br
             label(for='websiteEntry') Website
               div#websiteError.error
@@ -161,15 +162,13 @@ html(lang='en-US')
             label(for='subjectEntry') Subject
               span.error *
               div#subjectError.error
-              input#subjectEntry(type="text" name="subjectEntry")
+              input#subjectEntry(type="text" name="subjectEntry" required)
             br
             label(for='messageEntry') Message
               span.error *
               div#messageError.error
-              textarea#messageEntry(type="text" rows='4' name="messageEntry")
+              textarea#messageEntry(type="text" rows='4' name="messageEntry" required)
             br
-            //- NOTE: This button does not have type="submit"
-            //- Submission handled by contact.js validation
             button#submit.submit Submit
     //- Footer
     footer
