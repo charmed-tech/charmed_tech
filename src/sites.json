@@ -60,7 +60,7 @@
     },
     {
       "title": "The Game of Life",
-      "description": "British mathematician John Conway designed the Game of Life in 1970 to model the evolution of a system given an initial state and set of rules. If you've got a grand total of zero players handy, you can check out my version of the cellular automaton built with React, Redux, and SCSS. Each cell is \"aware\" of what its neighbors are doing, and future \"generations\" develop with blazing speed...",
+      "description": "British mathematician John Conway designed the Game of Life in 1970 to model the evolution of a system given an initial state and set of rules. If you've got a grand total of zero players handy, you can check out my version of the cellular automaton built with React, Redux, and SCSS. Each cell is \"aware\" of what its neighbors are doing, and future \"generations\" develop with blazing speed... and 100% test coverage!",
       "url": "https://charmedsatyr.github.io/game_of_life/",
       "img_lg": "img/thumbs/game_of_life-lg.png",
       "img_sm": "img/thumbs/game_of_life-sm.png"
