@@ -68,7 +68,7 @@
     {
       "title": "Simon Game",
       "description": "This digital remake of Milton Bradley's classic 1978 memory game is made with jQuery and oodles of SCSS. Strict mode is unforgiving, and the game speeds up as you progress. Score 20 points to hear the victory tune!",
-      "url": "https://charmedsatyr.github.io/simon_game",
+      "url": "https://charmedsatyr-freecodecamp.github.io/simon_game",
       "img_lg": "img/thumbs/simon_game-lg.png",
       "img_sm": "img/thumbs/simon_game-sm.png"
     },
