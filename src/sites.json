@@ -10,21 +10,21 @@
     {
       "title": "Markdown Language Previewer",
       "description": "Test your Markdown language skills with this React Markdown Previewer. Using the Marked library with custom options, this website is an asset for anyone who wants to preview their GitHub-flavored documents before posting them online. (Tiptop tooling for READMEs, I say!)",
-      "url": "https://charmedsatyr.github.io/markdown_previewer",
+      "url": "https://charmedsatyr-freecodecamp.github.io/markdown_previewer",
       "img_lg": "img/thumbs/markdown_previewer-lg.png",
       "img_sm": "img/thumbs/markdown_previewer-sm.png"
     },
     {
       "title": "Recipe Box",
       "description": "Made with React.js, React Bootstrap, and way too much SCSS. Add your own recipes and style the instructions to your taste with GitHub-flavored Markdown. Recipes will stick around until you clear your browser's cache.",
-      "url": "https://charmedsatyr.github.io/recipe_box/",
+      "url": "https://charmedsatyr-freecodecamp.github.io/recipe_box/",
       "img_lg": "img/thumbs/recipe_box-lg.png",
       "img_sm": "img/thumbs/recipe_box-sm.png"
     },
     {
       "title": "Wikipedia Viewer",
       "description": "Type your query to automagically search the entire Wikipedia API for articles. If you're up for an adventure, try clicking Random and probe an obscure branch of human knowledge.",
-      "url": "https://charmedsatyr.github.io/wikipedia_viewer",
+      "url": "https://charmedsatyr-freecodecamp.github.io/wikipedia_viewer",
       "img_lg": "img/thumbs/wikipedia_viewer-lg.png",
       "img_sm": "img/thumbs/wikipedia_viewer-sm.png"
     },
@@ -61,7 +61,7 @@
     {
       "title": "The Game of Life",
       "description": "British mathematician John Conway designed the Game of Life in 1970 to model the evolution of a system given an initial state and set of rules. If you've got a grand total of zero players handy, you can check out my version of the cellular automaton built with React, Redux, and SCSS. Each cell is \"aware\" of what its neighbors are doing, and future \"generations\" develop with blazing speed... and 100% test coverage!",
-      "url": "https://charmedsatyr.github.io/game_of_life/",
+      "url": "https://charmedsatyr-freecodecamp.github.io/game_of_life/",
       "img_lg": "img/thumbs/game_of_life-lg.png",
       "img_sm": "img/thumbs/game_of_life-sm.png"
     },
