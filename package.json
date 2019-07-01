@@ -1,14 +1,13 @@
 {
   "name": "charmed_tech",
   "version": "0.0.1",
-  "main": "index.html",
-  "repository": "https://github.com/CharmedSatyr/charmed_tech",
+  "repository": "https://github.com/charmed-tech/charmed_tech",
   "author": "CharmedSatyr <z@charmed.tech>",
   "license": "GPL-3.0",
   "private": false,
   "scripts": {
-    "clean": "gulp clean",
     "build": "gulp clean; gulp build",
+    "clean": "gulp clean",
     "start": "gulp clean; gulp build; gulp watch"
   },
   "dependencies": {},
