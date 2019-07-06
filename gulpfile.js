@@ -1,51 +1,51 @@
-var autoprefixer = require('gulp-autoprefixer')
-var bs = require('browser-sync').create()
-var cleanCSS = require('gulp-clean-css')
-var concat = require('gulp-concat')
-var data = require('gulp-data')
-var del = require('del')
-var fs = require('fs')
-var gulp = require('gulp')
-var imageResize = require('gulp-image-resize')
-var inject = require('gulp-inject')
-var pug = require('gulp-pug')
-var rename = require('gulp-rename')
-var sass = require('gulp-sass')
-var uglify = require('gulp-uglify')
+const autoprefixer = require('gulp-autoprefixer')
+const bs = require('browser-sync').create()
+const cleanCSS = require('gulp-clean-css')
+const concat = require('gulp-concat')
+const data = require('gulp-data')
+const del = require('del')
+const fs = require('fs')
+const gulp = require('gulp')
+const imageResize = require('gulp-image-resize')
+const inject = require('gulp-inject')
+const pug = require('gulp-pug')
+const rename = require('gulp-rename')
+const sass = require('gulp-sass')
+const uglify = require('gulp-uglify')
 
 // Reminder: to include directories AND their contents, use gulp.src('path', { base: 'basePath' }).pipe(...)
 
 /* DELETE PREVIOUS BUILD */
 gulp.task('clean', function() {
-  return del(['dist/'])
+  return del(['build/'])
 })
 
-/* MOVE FONTS, IMAGES, AND OTHER SUPPORTING FILES TO DIST */
-// copy htaccess, php, txt, and ico files to dist
+/* MOVE FONTS, IMAGES, AND OTHER SUPPORTING FILES TO build */
+// copy htaccess, php, txt, and ico files to build
 gulp.task('files', function() {
-  return gulp.src(['src/.htaccess', 'src/*.php', 'src/*.txt', 'src/*.ico']).pipe(gulp.dest('dist/'))
+  return gulp.src(['src/config/*', 'src/php/*.php', 'src/img/*.ico']).pipe(gulp.dest('build/'))
 })
 
-// copy font-awesome fonts to dist
+// copy font-awesome fonts to build
 gulp.task('fa', function() {
   return gulp
     .src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
-    .pipe(gulp.dest('dist/fonts/fontawesome'))
+    .pipe(gulp.dest('build/fonts/fontawesome'))
 })
 
-// copy other chosen fonts to dist
+// copy other chosen fonts to build
 gulp.task('local-fonts', function() {
-  return gulp.src('src/fonts/**', { base: 'src/fonts/' }).pipe(gulp.dest('dist/fonts/'))
+  return gulp.src('src/fonts/**', { base: 'src/fonts/' }).pipe(gulp.dest('build/fonts/'))
 })
 
-// copy non-thumbnail images to dist
+// copy non-thumbnail images to build
 gulp.task('img', function() {
-  return gulp.src(['src/img/*', '!src/img/thumbs/']).pipe(gulp.dest('dist/img/'))
+  return gulp.src(['src/img/*', '!src/img/thumbs/']).pipe(gulp.dest('build/img/'))
 })
 
 // resize thumbnail images for desktop
 // rename the result
-// copy to dist
+// copy to build
 gulp.task('thumbs-lg', function() {
   return gulp
     .src('src/img/thumbs/*')
@@ -56,19 +56,19 @@ gulp.task('thumbs-lg', function() {
         crop: true,
         upscale: false,
         quality: 0.9,
-        //format: '.jpg' // can override original file format
+        // format: '.jpg' // can override original file format
         imageMagick: true, // otherwise will use GrahicsMagick
         interlace: true,
         cover: true
       })
     )
     .pipe(rename(path => (path.basename += '-lg')))
-    .pipe(gulp.dest('dist/img/thumbs/'))
+    .pipe(gulp.dest('build/img/thumbs/'))
 })
 
 // resize thumbnail images for mobile
 // rename the result
-// copy to dist
+// copy to build
 gulp.task('thumbs-sm', function() {
   return gulp
     .src('src/img/thumbs/*')
@@ -79,14 +79,14 @@ gulp.task('thumbs-sm', function() {
         crop: true,
         upscale: false,
         quality: 0.9,
-        //format: '.jpg' // can override original file format
+        // format: '.jpg' // can override original file format
         imageMagick: true, // otherwise will use GrahicsMagick
         interlace: true,
         cover: true
       })
     )
     .pipe(rename(path => (path.basename += '-sm')))
-    .pipe(gulp.dest('dist/img/thumbs/'))
+    .pipe(gulp.dest('build/img/thumbs/'))
 })
 
 // combined resources tasks
@@ -97,7 +97,7 @@ gulp.task('resources', gulp.parallel('files', 'fa', 'local-fonts', 'img', 'thumb
 // concatenate it into a single file
 // autoprefix everything
 // clean everything
-// put it in dist/styles
+// put it in build/styles
 // stream
 gulp.task('styles', function() {
   return (
@@ -105,12 +105,12 @@ gulp.task('styles', function() {
       // Font Awesome SCSS manually copied from `node_modules` to `src/scss/fontawesome/`
       // because it requires manual path updating in `fontawesome/_variables.scss`.
       // Similar story for `src/scss/_devicon.scss`.
-      .src('src/scss/*.scss')
+      .src('src/styles/*.scss')
       .pipe(sass())
-      .pipe(concat('styles.min.css'))
-      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
+      .pipe(concat('index.min.css'))
+      .pipe(autoprefixer())
       .pipe(cleanCSS({ compatibility: 'ie8' }))
-      .pipe(gulp.dest('dist/styles/'))
+      .pipe(gulp.dest('build/styles/'))
       .pipe(bs.stream())
   )
 })
@@ -124,37 +124,50 @@ gulp.task('js', function() {
     .src(['node_modules/jquery/dist/jquery.min.js', 'src/js/*.js'])
     .pipe(concat('index.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/js/'))
+    .pipe(gulp.dest('build/js/'))
     .pipe(bs.stream())
 })
 
-// combined injectors task - these sources will be injected into pug templates
+// combined injectors task - these sources will be injected into pug templates in the `build` step
 gulp.task('injectors', gulp.parallel('styles', 'js'))
 
-// injector file paths - variable must be set with *.css and *.js files in dist or will not work
-function setInjectors() {
-  var injectors = gulp.src(['dist/styles/*.css', 'dist/js/*.js'], { read: false })
-  return injectors
-}
+// injector file paths - variable must be set with *.css and *.js files in build or will not work. A function works best for async
+const setInjectors = () => gulp.src(['build/styles/*.css', 'build/js/*.js'], { read: false })
 
 /* RENDER PUG FILES */
 // index.html
 // import sites.json object for pug to iterate - multiple ways to do this, but fs method works with browserSync
 // inject sources with proper paths
 // render it
-// put it in dist
+// put it in build
 // stream
 gulp.task('index', function() {
-  var target = gulp.src('src/index.pug', { read: true })
+  const target = gulp.src('src/pages/home/index.pug', { read: true })
   return target
     .pipe(
       data(file => {
-        return JSON.parse(fs.readFileSync('./src/sites.json'))
+        return JSON.parse(fs.readFileSync('./src/pages/home/projects.json'))
       })
     )
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(setInjectors(), { ignorePath: 'build/' }))
     .pipe(pug())
-    .pipe(gulp.dest('dist/'))
+    .pipe(concat('index.html'))
+    .pipe(gulp.dest('build/'))
+    .pipe(bs.stream())
+})
+
+gulp.task('fcc', function() {
+  const target = gulp.src('src/pages/freecodecamp/index.pug', { read: true })
+  return target
+    .pipe(
+      data(file => {
+        return JSON.parse(fs.readFileSync('./src/pages/freecodecamp/projects.json'))
+      })
+    )
+    .pipe(inject(setInjectors(), { ignorePath: 'build/' }))
+    .pipe(pug())
+    .pipe(concat('index.html'))
+    .pipe(gulp.dest('build/freecodecamp/'))
     .pipe(bs.stream())
 })
 
@@ -162,12 +175,12 @@ gulp.task('index', function() {
 // inject sources with proper paths
 // render stream with locals
 // name it
-// put it in dist
+// put it in build
 // stream
 gulp.task('ty', function() {
-  var target = gulp.src('src/thanksAndError.pug', { read: true })
+  const target = gulp.src('src/pages/thanksAndError/index.pug', { read: true })
   return target
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(setInjectors(), { ignorePath: 'build/' }))
     .pipe(
       pug({
         data: {
@@ -176,16 +189,16 @@ gulp.task('ty', function() {
         }
       })
     )
-    .pipe(concat('thanks.html'))
-    .pipe(gulp.dest('dist/'))
+    .pipe(concat('index.html'))
+    .pipe(gulp.dest('build/thanks/'))
     .pipe(bs.stream())
 })
 
 // error404.html
 gulp.task('404', function() {
-  var target = gulp.src('src/thanksAndError.pug', { read: true })
+  const target = gulp.src('src/pages/thanksAndError/index.pug', { read: true })
   return target
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(setInjectors(), { ignorePath: 'build/' }))
     .pipe(
       pug({
         data: {
@@ -194,16 +207,16 @@ gulp.task('404', function() {
         }
       })
     )
-    .pipe(concat('error404.html'))
-    .pipe(gulp.dest('dist/'))
+    .pipe(concat('index.html'))
+    .pipe(gulp.dest('build/404/'))
     .pipe(bs.stream())
 })
 
 // error501.html
 gulp.task('501', function() {
-  var target = gulp.src('src/thanksAndError.pug', { read: true })
+  const target = gulp.src('src/pages/thanksAndError/index.pug', { read: true })
   return target
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(setInjectors(), { ignorePath: 'build/' }))
     .pipe(
       pug({
         data: {
@@ -212,42 +225,46 @@ gulp.task('501', function() {
         }
       })
     )
-    .pipe(concat('error501.html'))
-    .pipe(gulp.dest('dist/'))
+    .pipe(concat('index.html'))
+    .pipe(gulp.dest('build/501/'))
     .pipe(bs.stream())
 })
 
 // combined pug task - render pug files with appropriate injections and locals
-gulp.task('pug', gulp.parallel('index', 'ty', '404', '501'))
+gulp.task('pug', gulp.parallel('index', 'fcc', 'ty', '404', '501'))
 
 /* COMPLETE BUILD TASK */
-gulp.task('build', gulp.series('clean', gulp.parallel('resources', 'injectors'), 'pug'))
+gulp.task('build', gulp.series('clean', 'resources', 'injectors', 'pug'))
 
 // Static server + watch files
 gulp.task(
   'watch',
   gulp.series('build', function() {
     bs.init({
-      // browser: 'chromium-browser',
+      open: false,
       server: {
-        baseDir: 'dist/'
+        baseDir: 'build/'
       }
     })
 
     gulp.watch(
       [
-        'src/*.php',
-        'src/*.txt',
+        'src/php/*.php',
+        'src/config/*.txt',
         'node_modules/font-awesome/fonts/*',
         'src/img/*',
         'src/img/thumbs/*'
       ],
       gulp.series('resources')
     )
-    gulp.watch('src/scss/*.scss', gulp.series('styles'))
-    gulp.watch('src/js/*.js', gulp.series('js'))
-    gulp.watch(['src/sites.json', 'src/index.pug'], gulp.series('index'))
-    gulp.watch('src/thanksAndError.pug', gulp.parallel('ty', '404', '501'))
-    gulp.watch('dist/*.html').on('change', bs.reload)
+    gulp.watch('src/styles/**/*.scss', gulp.series('styles'))
+    gulp.watch('src/js/**/*.js', gulp.series('js'))
+    gulp.watch(['src/pages/home/sites.json', 'src/pages/home/index.pug'], gulp.series('index'))
+    gulp.watch(
+      ['src/pages/freecodecamp/projects.json', 'src/pages/freecodecamp/index.pug'],
+      gulp.series('fcc')
+    )
+    gulp.watch('src/pages/thanksAndError/index.pug', gulp.parallel('ty', '404', '501'))
+    gulp.watch('build/**/*.html').on('change', bs.reload)
   })
 )

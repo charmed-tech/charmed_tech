@@ -1,0 +1,232 @@
+{
+  "projects": [
+    {
+      "title": "Responsive Web Design",
+      "certificate": "https://www.freecodecamp.org/certification/charmedsatyr/responsive-web-design",
+      "sites": [
+        {
+          "title": "A Tribute to Spaceman Spiff",
+          "url": "https://charmedsatyr-freecodecamp.github.io/tribute_page"
+        },
+        {
+          "title": "Survey Form",
+          "url": "https://charmedsatyr-freecodecamp.github.io/survey_form"
+        },
+        {
+          "title": "Product Landing Page",
+          "url": "https://charmedsatyr-freecodecamp.github.io/product_landing_page"
+        },
+        {
+          "title": "Technical Documentation Page",
+          "url": "https://charmedsatyr-freecodecamp.github.io/technical_documentation_page"
+        },
+        {
+          "title": "Personal Portfolio Webpage",
+          "url": "https://charmedsatyr-freecodecamp.github.io/personal_portfolio"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript Algorithms and Data Structures",
+      "certificate": "https://www.freecodecamp.org/certification/charmedsatyr/javascript-algorithms-and-data-structures",
+      "sites": [
+        {
+          "title": "Palindrome Checker",
+          "url": "https://gist.github.com/CharmedSatyr/be02429bb75c4b140945b6f0858c3901#file-palindrome-checker-js"
+        },
+        {
+          "title": "Roman Numeral Converter",
+          "url": "https://gist.github.com/CharmedSatyr/be02429bb75c4b140945b6f0858c3901#file-roman-numeral-converter-js"
+        },
+        {
+          "title": "Caesar's Cipher",
+          "url": "https://gist.github.com/CharmedSatyr/be02429bb75c4b140945b6f0858c3901#file-caesars-cipher-js"
+        },
+        {
+          "title": "Telephone Number Validator",
+          "url": "https://gist.github.com/CharmedSatyr/be02429bb75c4b140945b6f0858c3901#file-telephone-number-validator-js"
+        },
+        {
+          "title": "Cash Register",
+          "url": "https://gist.github.com/CharmedSatyr/be02429bb75c4b140945b6f0858c3901#file-cash-register-js"
+        }
+      ]
+    },
+    {
+      "title": "Front End Libraries",
+      "certificate": "https://www.freecodecamp.org/certification/charmedsatyr/front-end-libraries",
+      "sites": [
+        {
+          "title": "Build A Random Quote Machine",
+          "url": "https://charmedsatyr-freecodecamp.github.io/random_quote_machine"
+        },
+        {
+          "title": "Build A Markdown Previewer",
+          "url": "https://charmedsatyr-freecodecamp.github.io/markdown_previewer"
+        },
+        {
+          "title": "Build A Drum Machine",
+          "url": "https://charmedsatyr-freecodecamp.github.io/drum_machine"
+        },
+        {
+          "title": "Build A JavaScript Calculator",
+          "url": "https://charmedsatyr-freecodecamp.github.io/javascript_calculator"
+        },
+        {
+          "title": "Build A Pomodoro Clock",
+          "url": "https://charmedsatyr-freecodecamp.github.io/pomodoro_clock"
+        }
+      ]
+    },
+    {
+      "title": "Data Visualization",
+      "certificate": "",
+      "sites": []
+    },
+    {
+      "title": "APIs and Microservices",
+      "certificate": "https://www.freecodecamp.org/certification/charmedsatyr/apis-and-microservices",
+      "sites": [
+        {
+          "title": "Timestamp Microservice",
+          "url": "https://charmed-timestamper.herokuapp.com"
+        },
+        {
+          "title": "Request Header Parser Microservice",
+          "url": "https://charmed-rhpm.herokuapp.com"
+        },
+        {
+          "title": "URL Shortener Microservice",
+          "url": "https://op.pe"
+        },
+        {
+          "title": "Exercise Tracker",
+          "url": "https://charmed-exercise-tracker.herokuapp.com"
+        },
+        {
+          "title": "File Metadata Microservice",
+          "url": "https://charmed-metadata.herokuapp.com"
+        }
+      ]
+    },
+    {
+      "title": "Information Security and Quality Assurance",
+      "certificate": "",
+      "sites": []
+    },
+    {
+      "title": "Legacy Front End",
+      "certificate": "https://www.freecodecamp.org/certification/charmedsatyr/legacy-front-end",
+      "sites": [
+        {
+          "title": "Build A Personal Portfolio Webpage",
+          "url": "https://charmedsatyr-freecodecamp.github.io/personal_portfolio"
+        },
+        {
+          "title": "Build A Random Quote Machine",
+          "url": "https://charmedsatyr-freecodecamp.github.io/random_quote_machine"
+        },
+        {
+          "title": "Build A Pomodoro Clock",
+          "url": "https://charmedsatyr-freecodecamp.github.io/pomodoro_clock"
+        },
+        {
+          "title": "Build A JavaScript Calculator",
+          "url": "https://charmedsatyr-freecodecamp.github.io/javascript_calculator"
+        },
+        {
+          "title": "Show The Local Weather",
+          "url": "https://charmedsatyr-freecodecamp.github.io/local_weather_viewer"
+        },
+        {
+          "title": "Use The Twitch JSON API",
+          "url": "https://charmedsatyr-freecodecamp.github.io/twitch_stream_tracker"
+        },
+        {
+          "title": "Build A Tribute Page",
+          "url": "https://charmedsatyr-freecodecamp.github.io/tribute_page"
+        },
+        {
+          "title": "Build A Wikipedia Viewer",
+          "url": "https://charmedsatyr-freecodecamp.github.io/wikipedia_viewer"
+        },
+        {
+          "title": "Build A Tic Tac Toe Game",
+          "url": "https://charmedsatyr-freecodecamp.github.io/tic_tac_toe"
+        },
+        {
+          "title": "Build A Simon Game",
+          "url": "https://charmedsatyr-freecodecamp.github.io/simon_game"
+        }
+      ]
+    },
+    {
+      "title": "Legacy Back End",
+      "certificate": "https://www.freecodecamp.org/certification/charmedsatyr/legacy-back-end",
+      "sites": [
+        {
+          "title": "Timestamp Microservice",
+          "url": "https://charmed-timestamper.herokuapp.com"
+        },
+        {
+          "title": "Request Header Parser Microservice",
+          "url": "https://charmed-rhpm.herokuapp.com"
+        },
+        {
+          "title": "URL Shortener Microservice",
+          "url": "https://op.pe"
+        },
+        {
+          "title": "Build An Image Search Abstraction Layer",
+          "url": "https://charmed-isal.herokuapp.com"
+        },
+        {
+          "title": "File Metadata Microservice",
+          "url": "https://charmed-metadata.herokuapp.com"
+        },
+        {
+          "title": "Build A Voting App",
+          "url": "https://charmed-polling.herokuapp.com"
+        },
+        {
+          "title": "Build A Nightlife Coordination App",
+          "url": "https://charmed-nightlife.herokuapp.com"
+        },
+        {
+          "title": "Chart The Stock Market",
+          "url": "https://charmed-cash.herokuapp.com"
+        },
+        {
+          "title": "Manage A Book Trading Club",
+          "url": "https://charmed-books.herokuapp.com"
+        },
+        {
+          "title": "Build A Pinterest Clone",
+          "url": "https://sorcerer-city.herokuapp.com"
+        }
+      ]
+    },
+    {
+      "title": "Legacy Data Visualization",
+      "certificate": "",
+      "sites": [
+        {
+          "title": "Build A Markdown Previewer",
+          "url": "https://charmedsatyr-freecodecamp.github.io/markdown_previewer"
+        },
+        {
+          "title": "Build A Camper Leaderboard",
+          "url": "https://charmedsatyr-freecodecamp.github.io/camper_leaderboard"
+        },
+        {
+          "title": "Build A Recipe Box",
+          "url": "https://charmedsatyr-freecodecamp.github.io/recipe_box"
+        },
+        {
+          "title": "Build The Game Of Life",
+          "url": "https://charmedsatyr-freecodecamp.github.io/game_of_life"
+        }
+      ]
+    }
+  ]
+}

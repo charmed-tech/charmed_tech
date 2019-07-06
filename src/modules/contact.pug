@@ -1,0 +1,37 @@
+//- Contact form
+section.contact#contact
+  article.contents
+    h3 Send me a message 
+      span.fa.fa-send(aria-hidden='false')
+    noscript#ns
+      p This form won't work without JavaScript.
+      p Email me: z [at] charmed.tech
+      br
+    p Let's work together!
+    form(method="post" action="../php/contact.php" id="contactForm")
+      //- Validation error text handled in contact.js
+      label(for='nameEntry') Name
+        span.error *
+        div#nameError.error
+        input#nameEntry(type="text" name="nameEntry" required)
+      br
+      label(for='emailEntry') Email
+        span.error *
+        div#emailError.error
+        input#emailEntry(type="email" name="emailEntry" required)
+      br
+      label(for='websiteEntry') Website
+        div#websiteError.error
+        input#websiteEntry(type="text" name="websiteEntry")
+      br
+      label(for='subjectEntry') Subject
+        span.error *
+        div#subjectError.error
+        input#subjectEntry(type="text" name="subjectEntry" required)
+      br
+      label(for='messageEntry') Message
+        span.error *
+        div#messageError.error
+        textarea#messageEntry(type="text" rows='4' name="messageEntry" required)
+      br
+      button#submit.submit Submit

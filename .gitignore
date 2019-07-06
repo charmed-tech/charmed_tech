@@ -1,7 +1,8 @@
 # Vim swap files
 .*.swp
 
-# dist folder
+# build folder
+build
 dist
 
 # TODOS
