@@ -1,13 +1,6 @@
 {
   "drafts": [
     {
-      "title": "",
-      "description": "",
-      "url": "",
-      "img_lg": "",
-      "img_sm": ""
-    },
-    {
       "title": "Markdown Language Previewer",
       "description": "Test your Markdown language skills with this React Markdown Previewer. Using the Marked library with custom options, this website is an asset for anyone who wants to preview their GitHub-flavored documents before posting them online. (Tiptop tooling for READMEs, I say!)",
       "url": "https://charmedsatyr-freecodecamp.github.io/markdown_previewer",
@@ -38,16 +31,20 @@
   ],
   "sites": [
     {
+      "title": "charmed.social",
+      "description": "I'm building my skills as a sysadmin! <a href='https://joinmastodon.org' rel='noopener noreferrer'><span>Mastodon</span></a> is a free, open-source, federated microblogging network. Users on each server can interact with everyone else on compatible protocols, just like people with different email providers can. Better: server admins can set their own content and moderation policies and modify the software as they see fit. I'm getting pretty comfortable running my instance on NginX, PostgreSQL, Redis, Ruby on Rails, React, and Redux without downtime on a solar-powered Ubuntu box.",
+      "url": "https://charmed.social",
+      "img_lg": "img/thumbs/charmed_social-lg.png",
+      "img_sm": "img/thumbs/charmed_social-sm.png"
+    },
+    {
       "title": "Sorcerer City",
       "description": "This fantasy-themed, Pinterest-like inspiration engine posts your images and snaps them to a best-fit React Masonry grid. Built on Node.js with React, Express, Mongoose, and Semantic UI React, the app employs a websocket layer to instantly show you others' posts and likes even if you don't refresh your browser.",
       "url": "https://sorcerer-city.herokuapp.com",
       "img_lg": "img/thumbs/sorcerer_city-lg.png",
       "img_sm": "img/thumbs/sorcerer_city-sm.png"
-    },
-    {
-      "title": "Charmed Books",
-      "description": "Love to read? Form a book trading club with your friends, and manage your swaps using this MERN app! Material UI provides a colorful interface that enables users to add books from the Open Library API and request swaps with anyone in the community. Up-to-date book requests and ownership will appear in real time thanks to Socket.io. And don't worry about your password being stolen—only a salted hash will be stored in the database <span class='fa fa-lock'/>.",
-      "url": "https://charmed-books.herokuapp.com",
+    }, { "title": "Charmed Books",
+    "description": "Love to read? Form a book trading club with your friends, and manage your swaps using this MERN app! Material UI provides a colorful interface that enables users to add books from the Open Library API and request swaps with anyone in the community. Up-to-date book requests and ownership will appear in real time thanks to Socket.io. And don't worry about your password being stolen—only a salted hash will be stored in the database <span class='fa fa-lock'/>.", "url": "https://charmed-books.herokuapp.com",
       "img_lg": "img/thumbs/charmed_books-lg.png",
       "img_sm": "img/thumbs/charmed_books-sm.png"
     },
