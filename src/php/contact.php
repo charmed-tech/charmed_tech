@@ -52,7 +52,16 @@ End of message
 mail($myEmail, $subjectEntry, $messageSent);
 
 /* Redirect visitor to the thank you page */
-header('Location: thanks/index.html');
+header('Location: thanks/');
+exit();
+
+/*
+  redirect('thanks.html', false);
+  function redirect($url, $permanent = false)
+  {
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
+  };
+*/
 
 function show_error($myError)
 {
@@ -66,6 +75,6 @@ function show_error($myError)
     </body>
     </html>
 <?php
-exit();
-}
+  exit();
+  }
 ?>
