@@ -32,7 +32,7 @@
   "sites": [
     {
       "title": "charmed.social",
-      "description": "I'm building my skills as a sysadmin! <a href='https://joinmastodon.org' rel='noopener noreferrer'><span>Mastodon</span></a> is a free, open-source, federated microblogging network. Users on each server can interact with everyone else on compatible protocols, just like people with different email providers can. Better: server admins can set their own content and moderation policies and modify the software as they see fit. I'm getting pretty comfortable running my instance on NginX, PostgreSQL, Redis, Ruby on Rails, React, and Redux without downtime on a solar-powered Ubuntu box.",
+      "description": "I'm building my skills as a sysadmin! <a href='https://joinmastodon.org' rel='noopener noreferrer'><span>Mastodon</span></a> is a free, open-source, federated microblogging network. Users on each server can interact with everyone else on compatible protocols, just like people with different email providers can. Better: server admins can set their own content and moderation policies and modify the software as they see fit. I'm getting pretty comfortable running my instance with NginX, PostgreSQL, Redis, Ruby on Rails, React, and Redux without downtime on a solar-powered Ubuntu box.",
       "url": "https://charmed.social",
       "img_lg": "img/thumbs/charmed_social-lg.png",
       "img_sm": "img/thumbs/charmed_social-sm.png"
