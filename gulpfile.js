@@ -23,7 +23,9 @@ gulp.task('clean', function() {
 /* MOVE FONTS, IMAGES, AND OTHER SUPPORTING FILES TO build */
 // copy htaccess, php, txt, and ico files to build
 gulp.task('files', function() {
-  return gulp.src(['src/config/*', 'src/php/*.php', 'src/img/*.ico']).pipe(gulp.dest('build/'))
+  return gulp
+    .src(['src/config/robots.txt', 'src/config/.htaccess', 'src/php/*.php', 'src/img/*.ico'])
+    .pipe(gulp.dest('build/'))
 })
 
 // copy font-awesome fonts to build
