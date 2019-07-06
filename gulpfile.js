@@ -128,14 +128,11 @@ gulp.task('js', function() {
     .pipe(bs.stream())
 })
 
-// combined injectors task - these sources will be injected into pug templates
+// combined injectors task - these sources will be injected into pug templates in the `build` step
 gulp.task('injectors', gulp.parallel('styles', 'js'))
 
 // injector file paths - variable must be set with *.css and *.js files in dist or will not work
-function setInjectors() {
-  var injectors = gulp.src(['dist/styles/*.css', 'dist/js/*.js'], { read: false })
-  return injectors
-}
+const injectorPaths = gulp.src(['dist/styles/*.css', 'dist/js/*.js'], { read: false })
 
 /* RENDER PUG FILES */
 // index.html
@@ -152,9 +149,24 @@ gulp.task('index', function() {
         return JSON.parse(fs.readFileSync('./src/sites.json'))
       })
     )
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(injectorPaths, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(pug())
     .pipe(gulp.dest('dist/'))
+    .pipe(bs.stream())
+})
+
+gulp.task('fcc', function() {
+  var target = gulp.src('src/freecodecamp/index.pug', { read: true })
+  return target
+    .pipe(
+      data(file => {
+        return JSON.parse(fs.readFileSync('./src/freecodecamp/projects.json'))
+      })
+    )
+    .pipe(inject(injectorPaths, { ignorePath: 'dist/' }))
+    .pipe(pug())
+    .pipe(concat('index.html'))
+    .pipe(gulp.dest('dist/freecodecamp/'))
     .pipe(bs.stream())
 })
 
@@ -167,7 +179,7 @@ gulp.task('index', function() {
 gulp.task('ty', function() {
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(injectorPaths, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -185,7 +197,7 @@ gulp.task('ty', function() {
 gulp.task('404', function() {
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(injectorPaths, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -203,7 +215,7 @@ gulp.task('404', function() {
 gulp.task('501', function() {
   var target = gulp.src('src/thanksAndError.pug', { read: true })
   return target
-    .pipe(inject(setInjectors(), { addRootSlash: false, ignorePath: '../dist', relative: true }))
+    .pipe(inject(injectorPaths, { addRootSlash: false, ignorePath: '../dist', relative: true }))
     .pipe(
       pug({
         data: {
@@ -218,7 +230,7 @@ gulp.task('501', function() {
 })
 
 // combined pug task - render pug files with appropriate injections and locals
-gulp.task('pug', gulp.parallel('index', 'ty', '404', '501'))
+gulp.task('pug', gulp.parallel('index', 'fcc', 'ty', '404', '501'))
 
 /* COMPLETE BUILD TASK */
 gulp.task('build', gulp.series('clean', gulp.parallel('resources', 'injectors'), 'pug'))
@@ -228,7 +240,7 @@ gulp.task(
   'watch',
   gulp.series('build', function() {
     bs.init({
-      // browser: 'chromium-browser',
+      open: false,
       server: {
         baseDir: 'dist/'
       }
@@ -247,6 +259,7 @@ gulp.task(
     gulp.watch('src/scss/*.scss', gulp.series('styles'))
     gulp.watch('src/js/*.js', gulp.series('js'))
     gulp.watch(['src/sites.json', 'src/index.pug'], gulp.series('index'))
+    gulp.watch(['src/freecodecamp/projects.json', 'src/freecodecamp/index.pug'], gulp.series('fcc'))
     gulp.watch('src/thanksAndError.pug', gulp.parallel('ty', '404', '501'))
     gulp.watch('dist/*.html').on('change', bs.reload)
   })
