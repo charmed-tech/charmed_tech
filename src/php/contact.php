@@ -52,7 +52,7 @@ End of message
 mail($myEmail, $subjectEntry, $messageSent);
 
 /* Redirect visitor to the thank you page */
-header('Location: thanks.html');
+header('Location: thanks/index.html');
 
 function show_error($myError)
 {
