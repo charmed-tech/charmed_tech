@@ -1,0 +1,45 @@
+doctype html
+html(lang='en-US')
+  head
+    //- Title
+    title Charmed Tech | Creative, Full Stack Web Applications
+    //- Metadata
+    include ../../modules/meta.pug
+    //- Favicon
+    link(rel="shortcut icon" href="favicon.ico")
+    //- Pre-inititate DNS, TCP, TLS connections for portfolio links
+    each val in sites
+      link(rel="dns-prefetch" href=`${val.url}`)
+      link(rel="preconnect" href=`${val.url}`)
+    //- Injected styles
+    //- inject:css
+    //- {{name}}:{{ext}}
+    //- endinject
+  body
+
+    //- Navbar
+    include ../../modules/navbar.pug
+
+    //- No Script
+    include ../../modules/noscript.pug
+
+    //- Landing View
+    include ../../modules/landing.pug
+
+    main
+      //- Projects
+      include projects.pug
+
+      //- About
+      include ../../modules/about.pug
+
+      //- Contact
+      include ../../modules/contact.pug
+
+    //- Footer
+    include ../../modules/footer.pug
+
+    //- Injected scripts
+    //- inject:js
+    //- {{name}}.{{ext}}
+    //- endinject
